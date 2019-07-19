@@ -53,7 +53,7 @@ class CorsConfigurationTest extends \PHPUnit\Framework\TestCase
 
     public function testIfTheConfigurationIsEmptyItWillReturnAnEmptyArray()
     {
-        $this->scopeConfignMock->expects($this->any())->method('getValue')->willReturn('');
+        $this->scopeConfigMock->expects($this->any())->method('getValue')->willReturn('');
         $this->assertEquals([], $this->configuration->getAllowedOrigins());
     }
 
