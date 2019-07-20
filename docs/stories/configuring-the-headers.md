@@ -8,7 +8,7 @@ We provide several configuration keys for you to configure.
 * `web/graphql/cors_allowed_headers` - A comma separated list of the allowed response headers
 * `web/graphql/cors_max_age` - The duration that the CORS policy should be cached for.
 
-You can add the following to your `.env.php` to configure the package.
+You can add the following to your `app/etc/env.php` to configure the package.
 
 ```php
 <?php
