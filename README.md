@@ -13,14 +13,18 @@ When building a headless application for Magento, or working with a client that 
 This package will add configurable CORS Resource headers to the Magento 2 GraphQL API, allowing you to access the GraphQL API from your browser.
 
 ## Getting Started
-This module is intended to be installed with [composer](https://getcomposer.org/). From the root of your Magento 2 project, run the following commands:
+This module is intended to be installed with [composer](https://getcomposer.org/). From the root of your Magento 2 project:
 
+1. Download the package
 ```bash
 composer require graycore/magento2-cors
+```
+2. [Configure the package](/docs/stories/configuring-the-headers.md)
+3. Enable the package
+
+```bash
 ./bin/magento module:enable Graycore_Cors
 ```
-
-Next, [follow along with the configuration story](/docs/stories/configuring-the-headers.md) to configure the package.
 
 ## Features
 * [Configurable](./docs/stories/configuring-the-headers.md)
@@ -32,5 +36,5 @@ Next, [follow along with the configuration story](/docs/stories/configuring-the-
 * [Security By Default](./docs/stories/security.md#security-by-default)
 
 ## Helpful Links
-* :question: [FAQ](./docs/faq/faqs.md)
+* [FAQ](./docs/faq/faqs.md)
     * [Can I configure this from the admin panel?](./docs/faq/faqs.md#can-i-configure-this-from-the-admin-panel)

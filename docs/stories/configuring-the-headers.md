@@ -8,7 +8,7 @@ We provide several configuration keys for you to configure.
 * `web/graphql/cors_allowed_headers` - A comma separated list of the allowed response headers
 * `web/graphql/cors_max_age` - The duration that the CORS policy should be cached for.
 
-Here is a sample `env.php`:
+You can add the following to your `.env.php` to configure the package.
 
 ```php
 <?php
@@ -26,4 +26,4 @@ return [
 ];
 ```
 
-You can also optionally set the `cors_allowed_origins` key to `*` if you want to allow ALL origins, but we strongly suggest [you understand the ramifications of this before doing so.](/docs/stories/security.md);
+> You can also optionally set the `web/graphql/cors_allowed_origins` key to `*` if you want to allow ALL origins access to the resource, but we strongly suggest you [understand the ramifications of this before doing so.](/docs/stories/security.md)
