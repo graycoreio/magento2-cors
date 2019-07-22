@@ -4,7 +4,7 @@
         for="Graycore\Cors\Configuration\CorsConfigurationInterface" type="Graycore\Cors\Configuration\CorsConfiguration" />
     <preference 
         for="Graycore\Cors\Validator\CorsValidatorInterface" 
-        `type="Graycore\Cors\Validator\CorsValidator"/>
+        type="Graycore\Cors\Validator\CorsValidator"/>
     <type name="Magento\Framework\App\Response\HeaderManager">
         <arguments>
             <argument name="headerProviderList" xsi:type="array">
