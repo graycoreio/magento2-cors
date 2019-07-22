@@ -7,7 +7,6 @@ namespace Graycore\Cors\Test\Unit\Configuration;
 
 use Graycore\Cors\Configuration\CorsConfiguration;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\TestFramework\Unit\Helper\ObjectManager as ObjectManagerHelper;
 
 /**
  * Tests that the Cors Configuration object properly
@@ -34,38 +33,31 @@ class CorsConfigurationTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->scopeConfigMock = $this->getMockBuilder(ScopeConfigInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $objectManager = new ObjectManagerHelper($this);
-        $this->configuration = $objectManager->getObject(
-            CorsConfiguration::class,
-            ['scopeConfig' => $this->scopeConfigMock]
-        );
+        $this->scopeConfigMock = $this->createMock(ScopeConfigInterface::class);
+        $this->configuration = new CorsConfiguration($this->scopeConfigMock);
     }
 
     public function testItReturnsAnArrayOfAllowedOrigins()
     {
-        $this->scopeConfigMock->expects($this->any())->method('getValue')->willReturn('https://www.example.com');
+        $this->scopeConfigMock->method('getValue')->willReturn('https://www.example.com');
         $this->assertEquals(['https://www.example.com'], $this->configuration->getAllowedOrigins());
     }
 
     public function testIfTheConfigurationIsEmptyItWillReturnAnEmptyArray()
     {
-        $this->scopeConfigMock->expects($this->any())->method('getValue')->willReturn('');
+        $this->scopeConfigMock->method('getValue')->willReturn('');
         $this->assertEquals([], $this->configuration->getAllowedOrigins());
     }
 
     public function testIfTheConfigurationIsNullItWillReturnAnEmptyArray()
     {
-        $this->scopeConfigMock->expects($this->any())->method('getValue')->willReturn(null);
+        $this->scopeConfigMock->method('getValue')->willReturn(null);
         $this->assertEquals([], $this->configuration->getAllowedOrigins());
     }
 
     public function testIfTheConfigurationIsACommaSeparatedStringWithSpacesInItThenItWillReturnAnArrayOfOrigins()
     {
-        $this->scopeConfigMock->expects($this->any())
+        $this->scopeConfigMock
             ->method('getValue')->willReturn('https://www.example.com, ,https://www.myother.valid.domain ');
         $this->assertEquals(
             ['https://www.example.com', 'https://www.myother.valid.domain'],
