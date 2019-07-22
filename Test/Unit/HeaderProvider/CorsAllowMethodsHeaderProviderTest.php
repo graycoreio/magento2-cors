@@ -7,8 +7,7 @@ namespace Graycore\Cors\Test\Unit\HeaderProvider;
 
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Response\HeaderProvider\CorsAllowMethodsHeaderProvider;
-use Graycore\Cors\Validator\CorsValidator;
-use \Magento\Framework\TestFramework\Unit\Helper\ObjectManager as ObjectManagerHelper;
+use Graycore\Cors\Validator\CorsValidatorInterface;
 
 /**
  * Tests that the CORS AllowMethods header
@@ -36,7 +35,7 @@ class CorsAllowMethodsHeaderProviderTest extends \PHPUnit\Framework\TestCase
     protected $provider;
 
     /**
-     * @var CorsValidator|\PHPUnit_Framework_MockObject_MockObject
+     * @var CorsValidatorInterface|\PHPUnit_Framework_MockObject_MockObject
      */
     protected $corsValidatorMock;
 
@@ -47,19 +46,9 @@ class CorsAllowMethodsHeaderProviderTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->corsValidatorMock = $this->getMockBuilder(CorsValidator::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $this->corsConfigurationMock = $this->getMockBuilder(CorsConfigurationInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $objectManager = new ObjectManagerHelper($this);
-        $this->provider = $objectManager->getObject(
-            CorsAllowMethodsHeaderProvider::class,
-            ['configuration' => $this->corsConfigurationMock, 'validator' => $this->corsValidatorMock]
-        );
+        $this->corsValidatorMock = $this->createMock(CorsValidatorInterface::class);
+        $this->corsConfigurationMock = $this->createMock(CorsConfigurationInterface::class);
+        $this->provider = new CorsAllowMethodsHeaderProvider($this->corsConfigurationMock, $this->corsValidatorMock);
     }
 
     public function testGetName()
