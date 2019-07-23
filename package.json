@@ -1,0 +1,25 @@
+{
+  "name": "@graycore/magento2-cors",
+  "description": "A Magento 2 module that enables CORS on the GraphQL API",
+  "version": "1.0.0",
+  "directories": {
+    "doc": "docs"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graycoreio/magento2-cors.git"
+  },
+  "scripts": {
+    "release": "standard-version"
+  },
+  "author": "Damien Retzinger<damienwebdev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/graycoreio/magento2-cors/issues"
+  },
+  "homepage": "https://github.com/graycoreio/magento2-cors#readme",
+  "devDependencies": {
+    "standard-version": "^6.0.1"
+  }
+}
