@@ -51,7 +51,7 @@ class GraphQlResponseTest extends ControllerTestCase
         $this->assertSame(200, $response->getHttpResponseCode());
     }
 
-    public function testTheGraphQlAPIWillRespondWithCorsHeadersOnAnOptionsResponse()
+    public function testTheGraphQlApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
     {
         $headers = new Headers();
         $headers->addHeaderLine('Origin: https://www.example.com');
