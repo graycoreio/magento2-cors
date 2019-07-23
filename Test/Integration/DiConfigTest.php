@@ -43,34 +43,40 @@ class DiConfigTest extends TestCase
         $this->objectManager = ObjectManager::getInstance();
     }
 
+    /**
+     * @magentoAppArea global
+     */
     public function testItDoesNotPresentAConcretionForTheCorsValidatorInterfaceInTheGlobalScope()
     {
-        $this->setArea(Area::AREA_GLOBAL);
-        $this->assertNull(
-            $this->objectManager->get(CorsValidatorInterface::class)
-        );
+        $this->expectException(\Error::class, "Cannot instantiate interface Graycore\Cors\Validator\CorsValidatorInterface");
+        $this->objectManager->get(CorsValidatorInterface::class);
     }
 
+    /**
+     * @magentoAppArea graphql
+     */
     public function testItPresentsAConcretionForTheCorsValidatorInterfaceInTheGraphQlScope()
     {
-        $this->setArea(Area::AREA_GRAPHQL);
         $this->assertInstanceOf(
             CorsValidator::class,
             $this->objectManager->get(CorsValidatorInterface::class)
         );
     }
 
+    /**
+     * @magentoAppArea global
+     */
     public function testItDoesNotPresentAConcretionForTheCorsConfigurationInterfaceInTheGlobalScope()
     {
-        $this->setArea(Area::AREA_GLOBAL);
-        $this->assertNull(
-            $this->objectManager->get(CorsConfigurationInterface::class)
-        );
+        $this->expectException(\Error::class, "Cannot instantiate interface Graycore\Cors\Validator\CorsConfigurationInterface");
+        $this->objectManager->get(CorsConfigurationInterface::class);
     }
 
+    /**
+     * @magentoAppArea graphql
+     */
     public function testItPresentsAConcretionForTheCorsConfigurationInterfaceInTheGraphQlScope()
     {
-        $this->setArea(Area::AREA_GRAPHQL);
         $this->assertInstanceOf(
             CorsConfiguration::class,
             $this->objectManager->get(CorsConfigurationInterface::class)

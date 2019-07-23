@@ -22,19 +22,51 @@ use Zend\Http\Headers;
  */
 class GraphQlResponseTest extends ControllerTestCase
 {
-    public function testTheGraphQlResponseContainsCrossOriginHeaders()
+    private function dispatchToGraphQlApiWithOrigin(string $origin)
     {
         $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
+        $headers->addHeaderLine('Origin: ' . $origin);
         $headers->addHeaderLine('Content-Type: application/json');
         $this->getRequest()->setMethod('POST')->setHeaders($headers)
             ->setContent('{"query": "{products(search:\"Pierce\"){total_count}}"}');
         $this->dispatch('/graphql');
+    }
+
+    /**
+     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     */
+    public function testTheGraphQlResponseContainsCrossOriginHeaders()
+    {
+        $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
 
         /** @var Http $response */
         $response = $this->getResponse();
-        $this->assertNotEmpty($response->getHeader('Access-Control-Allow-Origin'));
-        $this->assertNotEmpty($response->getHeader('Access-Control-Max-Age'));
+        $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
+        $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
+    }
+
+    /**
+     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     */
+    public function testItdoesNotAddAnyCrossOriginHeadersToATypicalRequest()
+    {
+        $headers = new Headers();
+        $headers->addHeaderLine('Origin: https://www.example.com');
+        $this->dispatch('/');
+
+        /** @var Http $response */
+        $response = $this->getResponse();
+        $this->assertFalse($response->getHeader('Access-Control-Allow-Origin'));
+    }
+
+    public function testItDoesNotAddAnyCrossOriginHeadersOutOfTheBox()
+    {
+        $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
+
+        /** @var Http $response */
+        $response = $this->getResponse();
+        $this->assertFalse($response->getHeader('Access-Control-Allow-Origin'));
+        $this->assertFalse($response->getHeader('Access-Control-Max-Age'));
     }
 
     public function testTheGraphQlApiWillRespondToAOptionsRequestWithA200Response()
@@ -51,6 +83,9 @@ class GraphQlResponseTest extends ControllerTestCase
         $this->assertSame(200, $response->getHttpResponseCode());
     }
 
+    /**
+     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     */
     public function testTheGraphQlApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
     {
         $headers = new Headers();
@@ -62,7 +97,7 @@ class GraphQlResponseTest extends ControllerTestCase
 
         /** @var Http $response */
         $response = $this->getResponse();
-        $this->assertNotEmpty($response->getHeader('Access-Control-Allow-Origin'));
-        $this->assertNotEmpty($response->getHeader('Access-Control-Max-Age'));
+        $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
+        $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
 }
