@@ -14,12 +14,16 @@ You can add the following to your `app/etc/env.php` to configure the package.
 <?php
 return [
     ...
-    "web" => [
-        "graphql" => [
-            "cors_allowed_origins" => "https://www.myallowedorigins, https://www.myotherallowedorigin",
-            "cors_allowed_methods" => "GET, POST, OPTIONS",
-            "cors_allowed_headers" => "",
-            "cors_max_age" => "86400",
+    'system' => [
+        'default' => [
+            'web' => [
+                'graphql' => [
+                    'cors_allowed_origins' => 'https://www.example.com, https://www.myotherallowedorigin',
+                    'cors_allowed_methods' => 'GET, POST, OPTIONS',
+                    'cors_allowed_headers' => '',
+                    'cors_max_age' => '86400'
+                ]
+            ]
         ]
     ]
     ...
