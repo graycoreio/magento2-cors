@@ -1,4 +1,7 @@
-# Magento 2 CORS 
+# Magento 2 CORS
+
+[![Total Downloads](https://poser.pugx.org/graycore/magento2-cors/downloads)](https://packagist.org/packages/graycore/magento2-cors)
+ 
 Ever try to work with the Magento v2.3+ GraphQL API from your browser and see the following?
 
 ```txt
