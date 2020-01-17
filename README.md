@@ -41,3 +41,7 @@ composer require graycore/magento2-cors
 ## Helpful Links
 * [FAQ](./docs/faq/faqs.md)
     * [Can I configure this from the admin panel?](./docs/faq/faqs.md#can-i-configure-this-from-the-admin-panel)
+
+## Upgrading
+* [Semver Policy](https://semver.org/)
+* [Guide](./docs/upgrading/guide.md)
