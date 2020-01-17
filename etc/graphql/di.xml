@@ -8,8 +8,8 @@
         <arguments>
             <argument name="headerProviderList" xsi:type="array">
                 <item name="CorsAllowHeaders" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowHeadersHeaderProvider</item>
-                <item name="CorsAllowOrigin" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowMethodsHeaderProvider</item>
-                <item name="CorsAllowMethods" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowOriginHeaderProvider</item>
+                <item name="CorsAllowOrigin" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowOriginHeaderProvider</item>
+                <item name="CorsAllowMethods" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowMethodsHeaderProvider</item>
                 <item name="CorsMaxAge" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsMaxAgeHeaderProvider</item>
             </argument>
         </arguments>
