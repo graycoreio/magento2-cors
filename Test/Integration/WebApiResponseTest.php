@@ -47,8 +47,7 @@ class WebApiResponseTest extends ControllerTestCase
     }
 
     /**
-     * @group fit
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
     public function testTheRestApiResponseContainsCrossOriginHeaders()
     {
@@ -62,7 +61,7 @@ class WebApiResponseTest extends ControllerTestCase
     }
 
     /**
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
     public function testItdoesNotAddAnyCrossOriginHeadersToATypicalRequest()
     {
@@ -100,7 +99,7 @@ class WebApiResponseTest extends ControllerTestCase
     }
 
     /**
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
     public function testTheRestApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
     {

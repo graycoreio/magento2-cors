@@ -3,6 +3,12 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <web>
+            <api_rest>
+                <cors_allowed_origins></cors_allowed_origins>
+                <cors_allowed_methods></cors_allowed_methods>
+                <cors_allowed_headers></cors_allowed_headers>
+                <cors_max_age>86400</cors_max_age>
+            </api_rest>
             <graphql>
                 <cors_allowed_origins></cors_allowed_origins>
                 <cors_allowed_methods></cors_allowed_methods>

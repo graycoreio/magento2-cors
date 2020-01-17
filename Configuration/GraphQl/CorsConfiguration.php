@@ -3,8 +3,9 @@
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
-namespace Graycore\Cors\Configuration;
+namespace Graycore\Cors\Configuration\GraphQl;
 
+use Graycore\Cors\Configuration\ConfigurationCleaner;
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
@@ -31,6 +32,9 @@ class CorsConfiguration implements CorsConfigurationInterface
     /** @var ScopeConfigInterface */
     private $scopeConfig;
 
+    /** @var ConfigurationCleaner */
+    private $cleaner;
+
     /**
      * CorsAllowHeadersHeaderProvider constructor.
      *
@@ -38,24 +42,8 @@ class CorsConfiguration implements CorsConfigurationInterface
      */
     public function __construct(ScopeConfigInterface $scopeConfig)
     {
+        $this->cleaner = new ConfigurationCleaner();
         $this->scopeConfig = $scopeConfig;
-    }
-
-    private function _cleanConfig($configString)
-    {
-        $configuration = explode(',', $configString);
-        $cleanedConfiguration = [];
-        $cleanedConfiguration = array_map(
-            function ($item) {
-                return trim($item);
-            },
-            $configuration
-        );
-
-        $cleanedConfiguration = array_values(array_filter($cleanedConfiguration, function ($item) {
-            return !empty($item) ? true : false;
-        }));
-        return $cleanedConfiguration;
     }
 
     /**
@@ -65,7 +53,9 @@ class CorsConfiguration implements CorsConfigurationInterface
      */
     public function getAllowedOrigins(): array
     {
-        return $this->_cleanConfig($this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_ORIGINS));
+        return $this->cleaner->processDelimitedString(
+            $this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_ORIGINS)
+        );
     }
 
     /**
@@ -74,7 +64,9 @@ class CorsConfiguration implements CorsConfigurationInterface
      */
     public function getAllowedHeaders(): array
     {
-        return $this->_cleanConfig($this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_HEADERS));
+        return $this->cleaner->processDelimitedString(
+            $this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_HEADERS)
+        );
     }
 
     /**
@@ -82,7 +74,9 @@ class CorsConfiguration implements CorsConfigurationInterface
      */
     public function getAllowedMethods(): array
     {
-        return $this->_cleanConfig($this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_METHODS));
+        return $this->cleaner->processDelimitedString(
+            $this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_METHODS)
+        );
     }
 
     /**

@@ -7,10 +7,10 @@ namespace Graycore\Cors\Test\Integration;
 
 use PHPUnit\Framework\TestCase;
 use Magento\TestFramework\App\State as AppAreaState;
-use Magento\Framework\App\Area;
 use Magento\TestFramework\ObjectManager;
-use Graycore\Cors\Configuration\CorsConfiguration;
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
+use Graycore\Cors\Configuration\GraphQl\CorsConfiguration as GraphQlCorsConfiguration;
+use Graycore\Cors\Configuration\Rest\CorsConfiguration as RestCorsConfiguration;
 use Graycore\Cors\Validator\CorsValidatorInterface;
 use Graycore\Cors\Validator\CorsValidator;
 
@@ -27,16 +27,6 @@ class DiConfigTest extends TestCase
 {
     /** @var ObjectManager */
     private $objectManager;
-
-    /**
-     * @param string $area
-     */
-    private function setArea(string $area)
-    {
-        /** @var AppAreaState $appArea */
-        $appArea = $this->objectManager->get(AppAreaState::class);
-        $appArea->setAreaCode($area);
-    }
 
     public function setUp()
     {
@@ -64,6 +54,17 @@ class DiConfigTest extends TestCase
     }
 
     /**
+     * @magentoAppArea webapi_rest
+     */
+    public function testItPresentsAConcretionForTheCorsValidatorInterfaceInTheWebApiRestScope()
+    {
+        $this->assertInstanceOf(
+            CorsValidator::class,
+            $this->objectManager->get(CorsValidatorInterface::class)
+        );
+    }
+
+    /**
      * @magentoAppArea global
      */
     public function testItDoesNotPresentAConcretionForTheCorsConfigurationInterfaceInTheGlobalScope()
@@ -78,7 +79,18 @@ class DiConfigTest extends TestCase
     public function testItPresentsAConcretionForTheCorsConfigurationInterfaceInTheGraphQlScope()
     {
         $this->assertInstanceOf(
-            CorsConfiguration::class,
+            GraphQlCorsConfiguration::class,
+            $this->objectManager->get(CorsConfigurationInterface::class)
+        );
+    }
+
+    /**
+     * @magentoAppArea webapi_rest
+     */
+    public function testItPresentsAConcretionForTheCorsConfigurationInterfaceInTheRestScope()
+    {
+        $this->assertInstanceOf(
+            RestCorsConfiguration::class,
             $this->objectManager->get(CorsConfigurationInterface::class)
         );
     }
