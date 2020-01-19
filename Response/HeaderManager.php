@@ -40,6 +40,19 @@ class HeaderManager
         $this->headerProviders = $headerProviderList;
     }
 
+     /**
+     * @param \Magento\Framework\App\Response\HttpInterface $response
+     * @return void
+     */
+    public function applyHeaders(\Magento\Framework\App\Response\HttpInterface $response){
+        foreach ($this->headerProviders as $provider) {
+            if ($provider->canApply()) {
+                $response->setHeader($provider->getName(), $provider->getValue());
+            }
+        }
+        return $response;
+    }
+
     /**
      * @param \Magento\Framework\App\Response\HttpInterface $subject
      * @return void
@@ -47,10 +60,6 @@ class HeaderManager
      */
     public function beforeSendResponse(\Magento\Framework\App\Response\HttpInterface $subject)
     {
-        foreach ($this->headerProviders as $provider) {
-            if ($provider->canApply()) {
-                $subject->setHeader($provider->getName(), $provider->getValue());
-            }
-        }
+        $this->applyHeaders($subject);
     }
 }

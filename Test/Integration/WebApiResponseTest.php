@@ -26,7 +26,10 @@ class WebApiResponseTest extends ControllerTestCase
 
     public function getResponse() 
     {
-        return $this->_objectManager->get(\Magento\Framework\Webapi\Rest\Response::class);
+        if (!$this->_response) {
+            $this->_response = $this->_objectManager->get(\Magento\Framework\Webapi\Rest\Response::class);
+        }
+        return $this->_response;
     }
 
     private function dispatchToRestApi(){
@@ -99,6 +102,7 @@ class WebApiResponseTest extends ControllerTestCase
     }
 
     /**
+     * @group fit
      * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
     public function testTheRestApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
@@ -107,11 +111,12 @@ class WebApiResponseTest extends ControllerTestCase
         $headers->addHeaderLine('Origin: https://www.example.com');
         $headers->addHeaderLine('Content-Type: application/json');
 
-        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
-        $this->dispatchToRestApi();
+        $this->getRequest()->setMethod('POST');
+        $this->dispatch(self::ENDPOINT);
 
         /** @var Http $response */
         $response = $this->getResponse();
+        var_dump($response->getHttpResponseCode());die;
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
         $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
