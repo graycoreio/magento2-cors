@@ -116,7 +116,6 @@ class WebApiResponseTest extends ControllerTestCase
 
         /** @var Http $response */
         $response = $this->getResponse();
-        var_dump($response->getHttpResponseCode());die;
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
         $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
