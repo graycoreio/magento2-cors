@@ -11,7 +11,14 @@
         }
     ],
     "scripts": {
-        "test": "phpunit --bootstrap vendor/autoload.php test"
+        "test": "phpunit --bootstrap vendor/autoload.php test",
+        "lint": "phpcs . --standard=Magento2 --ignore='vendor/*'",
+        "post-install-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+        ],
+        "post-update-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+        ]
     },
     "archive": {
         "exclude": [
@@ -30,10 +37,28 @@
         ]
     },
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.0.0",
+        "magento/framework": "^102.0"
     },
     "require-dev": {
+        "magento/magento-coding-standard": "^5.0",
         "phpunit/phpunit": "^8.2",
         "squizlabs/php_codesniffer": "^3.4"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2.0",
+            "ext-bcmath": "7.2.0",
+            "ext-gd": "7.2.0",
+            "ext-curl": "7.2.0"
+        }
     }
 }
