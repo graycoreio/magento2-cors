@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Graycore\Cors\Configuration\CorsConfigurationInterface" type="Graycore\Cors\Configuration\Graphql\CorsConfiguration" />
+    <preference for="Graycore\Cors\Configuration\CorsConfigurationInterface" type="Graycore\Cors\Configuration\GraphQl\CorsConfiguration" />
     <preference 
         for="Graycore\Cors\Validator\CorsValidatorInterface" 
         type="Graycore\Cors\Validator\CorsValidator"/>
