@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/graycoreio/magento2-cors/compare/v1.1.0...v1.2.0) (2020-01-20)
+
+
+### Features
+
+* **rest:** fixup rest api to handle options requests ([#13](https://github.com/graycoreio/magento2-cors/issues/13)) ([3520b9d](https://github.com/graycoreio/magento2-cors/commit/3520b9d))
+
+
+
 ## [1.1.0](https://github.com/graycoreio/magento2-cors/compare/v1.0.0...v1.1.0) (2020-01-17)
 
 
