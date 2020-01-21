@@ -11,11 +11,8 @@ use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Configuration\GraphQl\CorsConfiguration as GraphQlCorsConfiguration;
 use Graycore\Cors\Configuration\Rest\CorsConfiguration as RestCorsConfiguration;
 
-
 /**
  * Tests that the Dependency Injection for the module is setup correctly.
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
@@ -36,7 +33,10 @@ class CorsConfigurationDiTest extends TestCase
      */
     public function testItDoesNotPresentAConcretionForTheCorsConfigurationInterfaceInTheGlobalScope()
     {
-        $this->expectException(\Error::class, "Cannot instantiate interface Graycore\Cors\Validator\CorsConfigurationInterface");
+        $this->expectException(
+            \Error::class,
+            "Cannot instantiate interface Graycore\Cors\Validator\CorsConfigurationInterface"
+        );
         $this->objectManager->get(CorsConfigurationInterface::class);
     }
 

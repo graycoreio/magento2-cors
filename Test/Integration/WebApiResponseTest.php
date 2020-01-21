@@ -13,8 +13,6 @@ use Zend\Http\Headers;
  * Tests that the responses to REST API requests
  * properly respond with the CORS headers in the
  * default configuration
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
@@ -24,7 +22,7 @@ class WebApiResponseTest extends ControllerTestCase
 {
     const ENDPOINT = '/rest/default/V1/directory/currency';
 
-    public function getResponse() 
+    public function getResponse()
     {
         if (!$this->_response) {
             $this->_response = $this->_objectManager->get(\Magento\Framework\Webapi\Rest\Response::class);
@@ -32,7 +30,8 @@ class WebApiResponseTest extends ControllerTestCase
         return $this->_response;
     }
 
-    private function dispatchToRestApi(){
+    private function dispatchToRestApi()
+    {
         ob_start();
         $this->dispatch(self::ENDPOINT);
         ob_end_clean();
