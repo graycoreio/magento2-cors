@@ -12,8 +12,6 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 /**
  * CorsConfiguration is responsible for retrieving the Configuration
  * for the GraphQL Cors settings from the Magento Configuration.
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license

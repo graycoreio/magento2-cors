@@ -12,11 +12,8 @@ use Magento\Framework\Webapi\Rest\Request as RestRequest;
 use Magento\Framework\App\Response\Http as HttpResponse;
 
 /**
- * PreflightRequestHandler is responsible for returning a 
+ * PreflightRequestHandler is responsible for returning a
  * 200 response to an options request.
- * 
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
@@ -31,7 +28,8 @@ class PreflightRequestHandler
     /** @var HeaderManager */
     private $headerManager;
 
-    public function __construct(HttpResponse $response, HeaderManager $headerManager){
+    public function __construct(HttpResponse $response, HeaderManager $headerManager)
+    {
         $this->_response = $response;
         $this->_headerManager = $headerManager;
     }
@@ -41,8 +39,9 @@ class PreflightRequestHandler
      *
      * @return string
      */
-    public function aroundDispatch(RestController $subject, callable $next, RequestInterface $request){
-        if($request instanceof Http && $request->isOptions()){
+    public function aroundDispatch(RestController $subject, callable $next, RequestInterface $request)
+    {
+        if ($request instanceof Http && $request->isOptions()) {
             return $this->_headerManager->applyHeaders($this->_response);
         }
 

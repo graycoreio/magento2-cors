@@ -10,8 +10,6 @@ use Magento\Framework\App\Request\Http as HttpRequest;
 /**
  * CorsValidator is responsible for validating that a request should
  * apply CORS headers to its response.
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license

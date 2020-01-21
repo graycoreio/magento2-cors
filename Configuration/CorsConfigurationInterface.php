@@ -9,8 +9,6 @@ namespace Graycore\Cors\Configuration;
  * CorsConfigurationInterface is a generic interface
  * that describes what types of configuration one would need to
  * implement CORS from a the "Resource" side.
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license

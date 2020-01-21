@@ -8,8 +8,6 @@ namespace Graycore\Cors\Configuration;
 /**
  * ConfigurationCleaner is responsible processing end-user specified configuration values
  * into values utilizable by the module.
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
@@ -33,5 +31,5 @@ class ConfigurationCleaner
             return !empty($item) ? true : false;
         }));
         return $cleanedConfiguration;
-    }    
+    }
 }

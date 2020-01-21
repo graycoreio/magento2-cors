@@ -13,8 +13,6 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 /**
  * Tests that the CORS AllowOrigin header
  * is properly applied to a response
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license

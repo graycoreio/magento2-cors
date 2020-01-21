@@ -12,8 +12,6 @@ use Magento\Framework\Phrase;
 /**
  * CorsAllowHeadersHeaderProvider is responsible for adding the header
  * Access-Control-Allow-Headers to a response.
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
@@ -41,10 +39,11 @@ class HeaderManager
     }
 
      /**
-     * @param \Magento\Framework\App\Response\HttpInterface $response
-     * @return void
-     */
-    public function applyHeaders(\Magento\Framework\App\Response\HttpInterface $response){
+      * @param \Magento\Framework\App\Response\HttpInterface $response
+      * @return void
+      */
+    public function applyHeaders(\Magento\Framework\App\Response\HttpInterface $response)
+    {
         foreach ($this->headerProviders as $provider) {
             if ($provider->canApply()) {
                 $response->setHeader($provider->getName(), $provider->getValue());

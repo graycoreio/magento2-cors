@@ -13,8 +13,6 @@ use Zend\Http\Headers;
  * Tests that the responses to GraphQl API requests
  * properly respond with the CORS headers in the
  * default configuration
- * @category  PHP
- * @package   Graycore_Cors
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
