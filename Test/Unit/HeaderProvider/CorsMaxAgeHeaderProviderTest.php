@@ -43,7 +43,7 @@ class CorsMaxAgeHeaderProviderTest extends \PHPUnit\Framework\TestCase
      */
     protected $corsConfigurationMock;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->corsValidatorMock = $this->createMock(CorsValidatorInterface::class);
         $this->corsConfigurationMock = $this->createMock(CorsConfigurationInterface::class);

@@ -29,7 +29,7 @@ class CorsConfigurationTest extends \PHPUnit\Framework\TestCase
      */
     protected $scopeConfigMock;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->scopeConfigMock = $this->createMock(ScopeConfigInterface::class);
         $this->configuration = new CorsConfiguration($this->scopeConfigMock);

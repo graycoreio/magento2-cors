@@ -12,6 +12,7 @@
     ],
     "scripts": {
         "test": "phpunit --bootstrap vendor/autoload.php test",
+        "unit-test": "vendor/bin/phpunit ./Test/Unit",
         "lint": "phpcs . --standard=Magento2 --ignore='vendor/*'",
         "post-install-cmd": [
             "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
