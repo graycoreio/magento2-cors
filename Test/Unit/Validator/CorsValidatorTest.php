@@ -35,7 +35,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
      */
     protected $requestMock;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->configurationMock = $this->createMock(CorsConfigurationInterface::class);
         $this->requestMock = $this->createMock(Http::class);
