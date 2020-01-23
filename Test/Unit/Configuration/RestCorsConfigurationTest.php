@@ -5,7 +5,7 @@
  */
 namespace Graycore\Cors\Test\Unit\Configuration;
 
-use Graycore\Cors\Configuration\CorsConfiguration;
+use Graycore\Cors\Configuration\Rest\CorsConfiguration;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 /**
@@ -17,7 +17,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
  */
-class CorsConfigurationTest extends \PHPUnit\Framework\TestCase
+class RestCorsConfigurationTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var CorsConfiguration
