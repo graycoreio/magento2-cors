@@ -6,7 +6,7 @@
 namespace Graycore\Cors\Test\Integration;
 
 use PHPUnit\Framework\TestCase;
-use Magento\TestFramework\ObjectManager;
+use Magento\TestFramework\Helper\ObjectManager;
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Configuration\GraphQl\CorsConfiguration as GraphQlCorsConfiguration;
 use Graycore\Cors\Configuration\Rest\CorsConfiguration as RestCorsConfiguration;
@@ -23,7 +23,7 @@ class CorsConfigurationDiTest extends TestCase
     /** @var ObjectManager */
     private $objectManager;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->objectManager = ObjectManager::getInstance();
     }

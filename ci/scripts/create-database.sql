@@ -1,0 +1,1 @@
+CREATE DATABASE magento_integration_tests;
