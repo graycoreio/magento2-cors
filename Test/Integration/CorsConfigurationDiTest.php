@@ -6,7 +6,7 @@
 namespace Graycore\Cors\Test\Integration;
 
 use PHPUnit\Framework\TestCase;
-use Magento\TestFramework\Helper\ObjectManager;
+use Magento\TestFramework\ObjectManager as ObjectManager;
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Configuration\GraphQl\CorsConfiguration as GraphQlCorsConfiguration;
 use Graycore\Cors\Configuration\Rest\CorsConfiguration as RestCorsConfiguration;
