@@ -110,7 +110,7 @@ class WebApiResponseTest extends ControllerTestCase
         $headers->addHeaderLine('Origin: https://www.example.com');
         $headers->addHeaderLine('Content-Type: application/json');
 
-        $this->getRequest()->setMethod('POST');
+        $this->getRequest()->setMethod('POST')->setHeaders($headers);
         $this->dispatch(self::ENDPOINT);
 
         /** @var Http $response */
