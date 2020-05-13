@@ -1,7 +1,7 @@
 # Developer Documentation
 
 ## Contributing
-Please read the [contributing guidelines here](https://github.com/graycoreio/daffodil/blob/develop/CONTRIBUTING.md).
+Please read the [contributing guidelines here](https://github.com/graycoreio/magento2-cors/blob/develop/CONTRIBUTING.md).
 
 ## Building the Project
 This project is intended to be installed as a composer dependency for a Magento application, so if you're working with it as a custom module, you'll need to install your own Magento instance and then this project as a dependency.
