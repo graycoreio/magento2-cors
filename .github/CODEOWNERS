@@ -14,12 +14,11 @@
 #  Concepts
 # ================================================
 #
-# A CodeOwner should only review what they are comfortable reviewing. If you're not comfortable, say something.
-# It is a CodeOwners responsibility to only accept the changes that they understand and deem necessary.
-# The CodeOwners have final say on whether or not code is accepted.
-# If multiple CodeOwners are listed, ALL code owners must approve the PR prior to merge.
-# CodeOwners work in conjunction with Github's "Number of Required Approvals (1)" requirement.
-
+# 1. A CodeOwner should only review what they are comfortable reviewing. If you're not comfortable, say something.
+# 2. It is a CodeOwners responsibility to only accept the changes that they understand and deem necessary.
+# 3. The CodeOwners have final say on whether or not code is accepted.
+# 4. If multiple CodeOwners are listed, ALL code owners must approve the PR prior to merge.
+# 5. CodeOwners work in conjunction with Github's "Number of Required Approvals (1)" requirement.
 
 
 # ================================================
