@@ -69,6 +69,10 @@ class CorsAllowOriginHeaderProvider extends AbstractHeaderProvider implements He
 
     public function getValue()
     {
+        if ($this->configuration->getAllowCredentials() && $this->allowedOriginIsWildcard()) {
+            return $this->request->getHeader('Origin');
+        }
+
         return $this->allowedOriginIsWildcard() ? '*' : $this->request->getHeader('Origin');
     }
 }

@@ -62,4 +62,10 @@ class GraphQlCorsConfigurationTest extends \PHPUnit\Framework\TestCase
             $this->configuration->getAllowedOrigins()
         );
     }
+
+    public function testIfAllowCredentialsNotConfiguredItWillReturnFalse()
+    {
+        $this->scopeConfigMock->method('isSetFlag')->willReturn(false);
+        $this->assertEquals(false, $this->configuration->getAllowCredentials());
+    }
 }

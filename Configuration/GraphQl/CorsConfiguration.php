@@ -27,6 +27,8 @@ class CorsConfiguration implements CorsConfigurationInterface
 
     const XML_PATH_GRAPHQL_CORS_MAX_AGE = 'web/graphql/cors_max_age';
 
+    const XML_PATH_GRAPHQL_CORS_CREDENTIALS = 'web/graphql/cors_allow_credentials';
+
     /** @var ScopeConfigInterface */
     private $scopeConfig;
 
@@ -83,5 +85,13 @@ class CorsConfiguration implements CorsConfigurationInterface
     public function getMaxAge(): string
     {
         return $this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_MAX_AGE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getAllowCredentials(): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_GRAPHQL_CORS_CREDENTIALS);
     }
 }

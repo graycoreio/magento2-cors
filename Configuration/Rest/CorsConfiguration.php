@@ -27,6 +27,8 @@ class CorsConfiguration implements CorsConfigurationInterface
 
     const XML_PATH_WEBAPI_REST_CORS_MAX_AGE = 'web/api_rest/cors_max_age';
 
+    const XML_PATH_REST_CORS_CREDENTIALS = 'web/api_rest/cors_allow_credentials';
+
     /** @var ConfigurationCleaner */
     private $cleaner;
 
@@ -83,5 +85,13 @@ class CorsConfiguration implements CorsConfigurationInterface
     public function getMaxAge(): string
     {
         return $this->scopeConfig->getValue(self::XML_PATH_WEBAPI_REST_CORS_MAX_AGE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getAllowCredentials(): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_REST_CORS_CREDENTIALS);
     }
 }
