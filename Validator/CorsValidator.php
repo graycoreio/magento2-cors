@@ -64,12 +64,27 @@ class CorsValidator implements CorsValidatorInterface
     {
         if ($this->request instanceof HttpRequest) {
             //Validate that we're working with something that cares about CORS
-            if (!$this->request->getHeader('Origin')) {
+            if (!$this->originHeaderExists()) {
                 return false;
             }
 
             return $this->configurationIsWildcard() || $this->requestOriginExistsInConfiguration();
         }
+
         return false;
+    }
+
+    /**
+     * Determines whether an origin header exists with a valid scheme.
+     * @return bool
+     */
+    private function originHeaderExists(): bool
+    {
+        try {
+            return $this->request->getHeader('Origin') ? true : false;
+        } catch (\Zend\Uri\Exception\InvalidArgumentException $exception) {
+            // In the event of an invalid URI scheme, e.g. chrome-extension://
+            return false;
+        }
     }
 }

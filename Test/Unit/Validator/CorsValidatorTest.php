@@ -52,6 +52,15 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
         return $this->assertEquals($expected, $this->validator->originIsValid());
     }
 
+    public function testInvalidOriginScheme()
+    {
+        $this->configurationMock->method('getAllowedOrigins')->willReturn(['*']);
+        $this->requestMock->method('getHeader')->willThrowException(
+            new \Zend\Uri\Exception\InvalidArgumentException
+        );
+        return $this->assertEquals(false, $this->validator->originIsValid());
+    }
+
     public function originIsValidDataProvider()
     {
         return [
