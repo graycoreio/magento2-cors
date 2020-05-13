@@ -8,6 +8,9 @@ sudo apt-get install "${phpVersion}-intl"
 echo "Cloning Magento 2 Repo"
 git clone --branch $magentoTag  --depth 1 https://github.com/magento/magento2.git ../magento2
 
+echo "Enabling MySQL on the Agent"
+sudo systemctl start mysql.service
+
 echo 'Creating database'
 mysql -u root -proot < ./ci/scripts/create-database.sql
 
