@@ -123,4 +123,12 @@ class CorsAllowOriginHeaderProviderTest extends \PHPUnit\Framework\TestCase
             ],
         ];
     }
+
+    public function testWildcardOriginWithAllowCredentials()
+    {
+        $this->corsConfigurationMock->method('getAllowedOrigins')->willReturn(["*"]);
+        $this->corsConfigurationMock->method('getAllowCredentials')->willReturn(true);
+        $this->requestMock->method('getHeader')->willReturn("www.example.com");
+        $this->assertEquals("www.example.com", $this->provider->getValue());
+    }
 }

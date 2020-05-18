@@ -8,12 +8,14 @@
                 <cors_allowed_methods></cors_allowed_methods>
                 <cors_allowed_headers></cors_allowed_headers>
                 <cors_max_age>86400</cors_max_age>
+                <cors_allow_credentials>0</cors_allow_credentials>
             </api_rest>
             <graphql>
                 <cors_allowed_origins></cors_allowed_origins>
                 <cors_allowed_methods></cors_allowed_methods>
                 <cors_allowed_headers></cors_allowed_headers>
                 <cors_max_age>86400</cors_max_age>
+                <cors_allow_credentials>0</cors_allow_credentials>
             </graphql>
         </web>
     </default>

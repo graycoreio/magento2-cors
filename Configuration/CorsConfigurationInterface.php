@@ -35,4 +35,9 @@ interface CorsConfigurationInterface
      * @return string;
      */
     public function getMaxAge(): ?string;
+
+    /**
+     * @return bool
+     */
+    public function getAllowCredentials(): bool;
 }
