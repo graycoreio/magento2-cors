@@ -2,7 +2,7 @@
     "name": "graycore/magento2-cors",
     "description": "A Magento 2 module that enables CORS on the GraphQL and REST Apis",
     "type": "magento2-module",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "license": "MIT",
     "authors": [
         {

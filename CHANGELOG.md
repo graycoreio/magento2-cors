@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/graycoreio/magento2-cors/compare/v1.2.0...v1.3.0) (2020-05-18)
+
+
+### Bug Fixes
+
+* **graphql:** prevent fatal error when using Chrome extensions for graphql querying ([#24](https://github.com/graycoreio/magento2-cors/issues/24)) ([486fe10](https://github.com/graycoreio/magento2-cors/commit/486fe10))
+
+
+### Build System
+
+* **all:** added unit tests to CI ([#18](https://github.com/graycoreio/magento2-cors/issues/18)) ([aade441](https://github.com/graycoreio/magento2-cors/commit/aade441))
+* **all:** adding linting with phpcs ([#16](https://github.com/graycoreio/magento2-cors/issues/16)) ([8753bd2](https://github.com/graycoreio/magento2-cors/commit/8753bd2))
+* **all:** set up CI with Azure Pipelines ([#15](https://github.com/graycoreio/magento2-cors/issues/15)) ([f30b51f](https://github.com/graycoreio/magento2-cors/commit/f30b51f))
+* **ci:** run integration tests in ci ([#21](https://github.com/graycoreio/magento2-cors/issues/21)) ([a79d7f7](https://github.com/graycoreio/magento2-cors/commit/a79d7f7))
+
+
+### Features
+
+* **cors:** add header provider for Allow-Credentials ([#27](https://github.com/graycoreio/magento2-cors/issues/27)) ([38bf597](https://github.com/graycoreio/magento2-cors/commit/38bf597))
+
+
+### Tests
+
+* **configuration:** added/updated unit tests for config files ([#19](https://github.com/graycoreio/magento2-cors/issues/19)) ([826b68e](https://github.com/graycoreio/magento2-cors/commit/826b68e))
+* **integration:** updated integration tests to pass ([#23](https://github.com/graycoreio/magento2-cors/issues/23)) ([89736d7](https://github.com/graycoreio/magento2-cors/commit/89736d7))
+
+
+
 ## [1.2.0](https://github.com/graycoreio/magento2-cors/compare/v1.1.0...v1.2.0) (2020-01-20)
 
 
