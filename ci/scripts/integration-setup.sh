@@ -17,8 +17,18 @@ mysql -u root -proot < ./ci/scripts/create-database.sql
 echo 'copying ci/phpunit.xml'
 cp ci/phpunit.xml ../magento2/dev/tests/integration/phpunit.xml
 
-echo 'copying ci/install-mysql-config.php'
-cp ci/install-config-mysql.php ../magento2/dev/tests/integration/etc/install-config-mysql.php
+if [ "$magentoTag" = "2.3" ]
+then
+  echo 'copying ci/install-mysql-config-2.3.php'
+  cp ci/install-config-mysql-2.3.php ../magento2/dev/tests/integration/etc/install-config-mysql.php
+elif [ "$magentoTag" = "2.4" ]
+then
+  echo 'copying ci/install-mysql-config-2.4.php'
+  cp ci/install-config-mysql-2.4.php ../magento2/dev/tests/integration/etc/install-config-mysql.php
+else
+  echo "Unsupported Magento Version, exiting."
+  exit 0
+fi
 
 echo "Creating Module Directory"
 mkdir -p ../magento2/app/code/Graycore/Cors 
