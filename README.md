@@ -1,11 +1,15 @@
 # Magento 2 CORS
 
-[![Total Downloads](https://poser.pugx.org/graycore/magento2-cors/downloads)](https://packagist.org/packages/graycore/magento2-cors)
+![Packagist Downloads](https://img.shields.io/packagist/dm/graycore/magento2-cors?color=blue)
+![Packagist Version](https://img.shields.io/packagist/v/graycore/magento2-cors?color=blue)
+![Packagist License](https://img.shields.io/packagist/l/graycore/magento2-cors)
 [![Build Status](https://graycore.visualstudio.com/open-source/_apis/build/status/graycoreio.magento2-cors?branchName=master)](https://graycore.visualstudio.com/open-source/_build/latest?definitionId=14&branchName=master)
-[![Latest Stable Version](https://poser.pugx.org/graycore/magento2-cors/version)](https://packagist.org/packages/graycore/magento2-cors)
-[![License](https://poser.pugx.org/graycore/magento2-cors/license)](https://packagist.org/packages/graycore/magento2-cors)
 
-Ever try to work with the Magento v2.3+ GraphQL API or REST API from your browser and see the following?
+## Magento Version Support
+![Magento v2.3 Supported](https://img.shields.io/badge/Magento-2.3-brightgreen.svg?labelColor=2f2b2f&logo=magento&logoColor=f26724&color=464246&longCache=true&style=flat)
+![Magento v2.4 Supported](https://img.shields.io/badge/Magento-2.4-brightgreen.svg?labelColor=2f2b2f&logo=magento&logoColor=f26724&color=464246&longCache=true&style=flat)
+
+Ever try to work with the Magento GraphQL API or REST API from your browser and see the following?
 
 ```txt
 Access to XMLHttpRequest at 'https://my.magento.app' from origin 'http://my.webapp.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
