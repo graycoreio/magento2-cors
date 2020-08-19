@@ -1,8 +1,8 @@
 # Magento 2 CORS
 
-![Packagist Downloads](https://img.shields.io/packagist/dm/graycore/magento2-cors?color=blue)
-![Packagist Version](https://img.shields.io/packagist/v/graycore/magento2-cors?color=blue)
-![Packagist License](https://img.shields.io/packagist/l/graycore/magento2-cors)
+[![Packagist Downloads](https://img.shields.io/packagist/dm/graycore/magento2-cors?color=blue)](https://packagist.org/packages/graycore/magento2-cors/stats)
+[![Packagist Version](https://img.shields.io/packagist/v/graycore/magento2-cors?color=blue)](https://packagist.org/packages/graycore/magento2-cors)
+[![Packagist License](https://img.shields.io/packagist/l/graycore/magento2-cors)](https://github.com/graycoreio/magento2-cors/blob/master/LICENSE)
 [![Build Status](https://graycore.visualstudio.com/open-source/_apis/build/status/graycoreio.magento2-cors?branchName=master)](https://graycore.visualstudio.com/open-source/_build/latest?definitionId=14&branchName=master)
 
 ## Magento Version Support
