@@ -14,7 +14,7 @@
         </arguments>
     </type>
     <type name="Magento\Webapi\Controller\Rest">
-        <plugin name="graycoreCorsPreflightHandlerRest" type="Graycore\Cors\Response\PreflightRequestHandler" />
+        <plugin name="graycoreCorsPreflightHandlerRest" type="Graycore\Cors\Response\Preflight\Rest\PreflightRequestHandler" />
     </type>
     <type name="Magento\Framework\Webapi\Rest\Response">
         <plugin name="genericWebApiHeaderPlugin" type="Graycore\Cors\Response\HeaderManager"/>
