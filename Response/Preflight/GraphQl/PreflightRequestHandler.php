@@ -16,7 +16,7 @@ use Magento\Framework\App\Response\HeaderManager;
 /**
  * PreflightRequestHandler is responsible for returning a
  * 200 response to an options request on the graphql endpoint.
- * 
+ *
  * @author    Matthew O'Loughlin <matthew@aligent.com.au>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
