@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Graycore\Cors\Configuration\CorsConfigurationInterface" type="Graycore\Cors\Configuration\GraphQl\CorsConfiguration" />
-    <preference 
-        for="Graycore\Cors\Validator\CorsValidatorInterface" 
-        type="Graycore\Cors\Validator\CorsValidator"/>
+    <preference for="Graycore\Cors\Validator\CorsValidatorInterface" type="Graycore\Cors\Validator\CorsValidator"/>
     <type name="Magento\Framework\App\Response\HeaderManager">
         <arguments>
             <argument name="headerProviderList" xsi:type="array">
@@ -14,5 +12,8 @@
                 <item name="CorsAllowCredentials" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowCredentialsHeaderProvider</item>
             </argument>
         </arguments>
+    </type>
+    <type name="Magento\GraphQl\Controller\GraphQl">
+        <plugin name="graycoreCorsPreflightHandlerGraphQl" type="Graycore\Cors\Response\Preflight\GraphQl\PreflightRequestHandler" />
     </type>
 </config>

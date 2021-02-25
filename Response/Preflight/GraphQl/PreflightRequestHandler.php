@@ -3,18 +3,19 @@
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
-namespace Graycore\Cors\Response;
+namespace Graycore\Cors\Response\Preflight\GraphQl;
 
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\App\RequestInterface;
-use Magento\Webapi\Controller\Rest as RestController;
-use Magento\Framework\Webapi\Rest\Request as RestRequest;
 use Magento\Framework\App\Response\Http as HttpResponse;
+use Magento\GraphQl\Controller\GraphQl as GraphQlController;
+use Magento\Framework\App\Response\HeaderManager;
 
 /**
  * PreflightRequestHandler is responsible for returning a
- * 200 response to an options request.
- * @author    Graycore <damien@graycore.io>
+ * 200 response to an options request on the graphql endpoint.
+ * 
+ * @author    Matthew O'Loughlin <matthew@aligent.com.au>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -26,7 +27,7 @@ class PreflightRequestHandler
     private $_response;
 
     /** @var HeaderManager */
-    private $headerManager;
+    private $_headerManager;
 
     public function __construct(HttpResponse $response, HeaderManager $headerManager)
     {
@@ -35,17 +36,19 @@ class PreflightRequestHandler
     }
 
     /**
-     * @param RestRequest $subject
-     *
-     * @return string
+     * @param GraphQlController $subject
+     * @param callable $next
+     * @param RequestInterface $request
+     * @return \Magento\Framework\App\Response\HttpInterface
      */
-    public function aroundDispatch(RestController $subject, callable $next, RequestInterface $request)
+    public function aroundDispatch(GraphQlController $subject, callable $next, RequestInterface $request)
     {
         if ($request instanceof Http && $request->isOptions()) {
-            return $this->_headerManager->applyHeaders($this->_response);
+            $this->_headerManager->beforeSendResponse($this->_response);
+            $this->_response->setNoCacheHeaders();
+            return $this->_response;
         }
 
-        /** @var HttpResponse $response */
         return $next($request);
     }
 }
