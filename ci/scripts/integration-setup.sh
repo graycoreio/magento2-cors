@@ -2,9 +2,6 @@ set -e
 
 echo Running Integration Tests
 
-echo "Installing additonal PHP Dependencies"
-sudo apt-get install "${phpVersion}-intl"
-
 echo "Cloning Magento 2 Repo"
 git clone --branch $magentoTag  --depth 1 https://github.com/magento/magento2.git ../magento2
 
