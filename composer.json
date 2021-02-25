@@ -41,7 +41,7 @@
         "magento/framework": "^102.0 || ^103.0"
     },
     "require-dev": {
-        "magento/magento-coding-standard": "^5.0",
+        "magento/magento-coding-standard": "^6.0",
         "phpunit/phpunit": "^8.2",
         "squizlabs/php_codesniffer": "^3.4"
     },
