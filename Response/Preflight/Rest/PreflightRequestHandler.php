@@ -5,6 +5,7 @@
  */
 namespace Graycore\Cors\Response\Preflight\Rest;
 
+use Graycore\Cors\Response\HeaderManager;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\App\RequestInterface;
 use Magento\Webapi\Controller\Rest as RestController;
