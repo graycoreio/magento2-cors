@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Response\Preflight\Rest;
 
 use Graycore\Cors\Response\HeaderManager;
@@ -15,7 +17,7 @@ use Magento\Framework\App\Response\Http as HttpResponse;
 /**
  * PreflightRequestHandler is responsible for returning a
  * 200 response to an options request.
- * 
+ *
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
