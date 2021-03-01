@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Test\Integration\Preflight;
 
 use Magento\Framework\App\Response\Http;
@@ -34,6 +36,7 @@ class WebApiResponseTest extends ControllerTestCase
     {
         ob_start();
         $this->dispatch(self::ENDPOINT);
+        $this->getResponse()->sendResponse();
         ob_end_clean();
     }
 
@@ -45,6 +48,7 @@ class WebApiResponseTest extends ControllerTestCase
         $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
         ob_start();
         $this->dispatch(self::ENDPOINT);
+        $this->getResponse()->sendResponse();
         ob_end_clean();
     }
 
@@ -63,8 +67,6 @@ class WebApiResponseTest extends ControllerTestCase
      */
     public function testItdoesNotAddAnyCrossOriginHeadersToATypicalRequest()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
         $this->dispatchToRestApi();
 
         /** @var Http $response */
@@ -75,7 +77,7 @@ class WebApiResponseTest extends ControllerTestCase
     /**
      * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
-    public function testTheRestApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
+    public function testTheWebApiPreflightResponseContainsCrossOriginHeaders()
     {
         $this->dispatchToRestApiWithOrigin("https://www.example.com");
 
@@ -83,10 +85,7 @@ class WebApiResponseTest extends ControllerTestCase
         $response = $this->getResponse();
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
         $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
-
-        /** @var Http $response */
-        $response = $this->getResponse();
         $this->assertSame(200, $response->getHttpResponseCode());
-        $this->assertEquals("",$response->getBody());
+        $this->assertEquals("", $response->getBody());
     }
 }

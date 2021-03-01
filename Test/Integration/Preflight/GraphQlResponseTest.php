@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Test\Integration\Preflight;
 
 use Magento\Framework\App\Response\Http;
@@ -29,7 +31,7 @@ class GraphQlResponseTest extends ControllerTestCase
             ->setContent('{"query": "{products(search:\"Pierce\"){total_count}}"}');
         $this->dispatch('/graphql');
     }
-    
+
     public function testItDoesNotAddAnyCrossOriginHeadersOutOfTheBox()
     {
         $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
@@ -55,7 +57,7 @@ class GraphQlResponseTest extends ControllerTestCase
     /**
      * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
      */
-    public function testTheGraphQlResponseContainsCrossOriginHeaders()
+    public function testTheGraphQlPreflightResponseContainsCrossOriginHeaders()
     {
         $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
 
