@@ -3,14 +3,14 @@
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
-namespace Graycore\Cors\Test\Integration;
+namespace Graycore\Cors\Test\Integration\Response;
 
 use Magento\Framework\App\Response\Http;
 use Magento\TestFramework\TestCase\AbstractController as ControllerTestCase;
 use Zend\Http\Headers;
 
 /**
- * Tests that the responses to GraphQl API requests
+ * Tests that the responses to REST API requests
  * properly respond with the CORS headers in the
  * default configuration
  * @author    Graycore <damien@graycore.io>
@@ -18,39 +18,60 @@ use Zend\Http\Headers;
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
  */
-class GraphQlResponseTest extends ControllerTestCase
+class WebApiResponseTest extends ControllerTestCase
 {
-    private function dispatchToGraphQlApiWithOrigin(string $origin)
+    const ENDPOINT = '/rest/default/V1/directory/currency';
+
+    public function getResponse()
+    {
+        if (!$this->_response) {
+            $this->_response = $this->_objectManager->get(\Magento\Framework\Webapi\Rest\Response::class);
+        }
+        return $this->_response;
+    }
+
+    private function dispatchToRestApi()
+    {
+        ob_start();
+        $this->dispatch(self::ENDPOINT);
+        $this->getResponse()->sendResponse();
+        ob_end_clean();
+    }
+
+    private function dispatchToRestApiWithOrigin(string $origin)
     {
         $headers = new Headers();
         $headers->addHeaderLine('Origin: ' . $origin);
         $headers->addHeaderLine('Content-Type: application/json');
-        $this->getRequest()->setMethod('POST')->setHeaders($headers)
-            ->setContent('{"query": "{products(search:\"Pierce\"){total_count}}"}');
-        $this->dispatch('/graphql');
+        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
+        ob_start();
+        $this->dispatch(self::ENDPOINT);
+        $this->getResponse()->sendResponse();
+        ob_end_clean();
     }
 
     /**
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
-    public function testTheGraphQlResponseContainsCrossOriginHeaders()
+    public function testTheRestApiResponseContainsCrossOriginHeaders()
     {
-        $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
+        $this->dispatchToRestApiWithOrigin("https://www.example.com");
 
         /** @var Http $response */
         $response = $this->getResponse();
+
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
         $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
 
     /**
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
     public function testItdoesNotAddAnyCrossOriginHeadersToATypicalRequest()
     {
         $headers = new Headers();
         $headers->addHeaderLine('Origin: https://www.example.com');
-        $this->dispatch('/');
+        $this->dispatchToRestApi();
 
         /** @var Http $response */
         $response = $this->getResponse();
@@ -59,7 +80,7 @@ class GraphQlResponseTest extends ControllerTestCase
 
     public function testItDoesNotAddAnyCrossOriginHeadersOutOfTheBox()
     {
-        $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
+        $this->dispatchToRestApiWithOrigin("https://www.example.com");
 
         /** @var Http $response */
         $response = $this->getResponse();
@@ -67,14 +88,14 @@ class GraphQlResponseTest extends ControllerTestCase
         $this->assertFalse($response->getHeader('Access-Control-Max-Age'));
     }
 
-    public function testTheGraphQlApiWillRespondToAOptionsRequestWithA200Response()
+    public function testTheRestApiWillRespondToAOptionsRequestWithA200Response()
     {
         $headers = new Headers();
         $headers->addHeaderLine('Origin: https://www.example.com');
         $headers->addHeaderLine('Content-Type: application/json');
 
         $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
-        $this->dispatch('/graphql');
+        $this->dispatchToRestApi();
 
         /** @var Http $response */
         $response = $this->getResponse();
@@ -82,16 +103,17 @@ class GraphQlResponseTest extends ControllerTestCase
     }
 
     /**
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
+     * @group fit
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
-    public function testTheGraphQlApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
+    public function testTheRestApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
     {
         $headers = new Headers();
         $headers->addHeaderLine('Origin: https://www.example.com');
         $headers->addHeaderLine('Content-Type: application/json');
 
-        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
-        $this->dispatch('/graphql');
+        $this->getRequest()->setMethod('POST')->setHeaders($headers);
+        $this->dispatch(self::ENDPOINT);
 
         /** @var Http $response */
         $response = $this->getResponse();
