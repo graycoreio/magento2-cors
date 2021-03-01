@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Configuration\Rest;
 
 use Graycore\Cors\Configuration\ConfigurationCleaner;
@@ -26,6 +28,8 @@ class CorsConfiguration implements CorsConfigurationInterface
     const XML_PATH_WEBAPI_REST_CORS_HEADERS = 'web/api_rest/cors_allowed_headers';
 
     const XML_PATH_WEBAPI_REST_CORS_MAX_AGE = 'web/api_rest/cors_max_age';
+
+    const XML_PATH_WEBAPI_REST_CORS_EXPOSE_HEADERS = 'web/api_rest/cors_expose_headers';
 
     const XML_PATH_REST_CORS_CREDENTIALS = 'web/api_rest/cors_allow_credentials';
 
@@ -93,5 +97,15 @@ class CorsConfiguration implements CorsConfigurationInterface
     public function getAllowCredentials(): bool
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_REST_CORS_CREDENTIALS);
+    }
+
+    /**
+     * @return string[];
+     */
+    public function getExposedHeaders(): array
+    {
+        return $this->cleaner->processDelimitedString(
+            $this->scopeConfig->getValue(self::XML_PATH_WEBAPI_REST_CORS_EXPOSE_HEADERS)
+        );
     }
 }

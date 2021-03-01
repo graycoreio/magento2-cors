@@ -40,4 +40,9 @@ interface CorsConfigurationInterface
      * @return bool
      */
     public function getAllowCredentials(): bool;
+
+    /**
+     * @return string[];
+     */
+    public function getExposedHeaders(): array;
 }

@@ -43,6 +43,7 @@ composer require graycore/magento2-cors
     * `Access-Control-Allow-Methods`
     * `Access-Control-Allow-Headers`
     * `Access-Control-Max-Age`
+    * `Access-Control-Expose-Headers`
     * `Access-Control-Allow-Credentials`
 
 * [Security By Default](./docs/stories/security.md#security-by-default)
