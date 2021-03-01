@@ -57,6 +57,6 @@ class CorsExposeHeadersProvider extends AbstractHeaderProvider implements Header
 
     public function canApply(): bool
     {
-        return $this->validator->originIsValid() && $this->getValue();
+        return $this->validator->isPreflightRequest() && $this->validator->originIsValid() && $this->getValue();
     }
 }

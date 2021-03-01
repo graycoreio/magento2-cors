@@ -57,6 +57,6 @@ class CorsAllowMethodsHeaderProvider extends AbstractHeaderProvider implements H
 
     public function canApply()
     {
-        return $this->validator->originIsValid() && $this->getValue();
+        return $this->validator->isPreflightRequest() && $this->validator->originIsValid() && $this->getValue();
     }
 }
