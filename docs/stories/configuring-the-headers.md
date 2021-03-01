@@ -7,12 +7,14 @@ We provide several configuration keys for you to configure. The configurations b
 * `web/graphql/cors_allowed_methods` - A comma separated list of the allowed request methods
 * `web/graphql/cors_allowed_headers` - A comma separated list of the allowed response headers
 * `web/graphql/cors_max_age` - The duration that the CORS policy should be cached for.
+* `web/graphql/cors_expose_headers` - A comma separated list that indicates which headers can be exposed as part of the response.
 * `web/graphql/cors_allow_credentials` - Whether to allow credentials on CORS requests
 
 * `web/api_rest/cors_allowed_origins` - A comma separated list of the origins allowed to the access the REST API
 * `web/api_rest/cors_allowed_methods` - A comma separated list of the allowed request methods
 * `web/api_rest/cors_allowed_headers` - A comma separated list of the allowed response headers
 * `web/api_rest/cors_max_age` - The duration that the CORS policy should be cached for.
+* `web/api_rest/cors_expose_headers` - A comma separated list that indicates which headers can be exposed as part of the response.
 * `web/api_rest/cors_allow_credentials` - Whether to allow credentials on CORS requests
 
 You can add the following to your `app/etc/env.php` to configure the package.

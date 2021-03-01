@@ -9,6 +9,7 @@
                 <item name="CorsAllowOrigin" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowOriginHeaderProvider</item>
                 <item name="CorsAllowMethods" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowMethodsHeaderProvider</item>
                 <item name="CorsMaxAge" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsMaxAgeHeaderProvider</item>
+                <item name="CorsExposeHeaders" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsExposeHeadersProvider</item>
                 <item name="CorsAllowCredentials" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowCredentialsHeaderProvider</item>
             </argument>
         </arguments>
