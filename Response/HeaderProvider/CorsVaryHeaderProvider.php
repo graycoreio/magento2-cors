@@ -37,20 +37,15 @@ class CorsVaryHeaderProvider extends AbstractHeaderProvider implements HeaderPro
     /** @var CorsValidatorInterface */
     protected $validator;
 
-    /** @var Http */
-    protected $request;
-
     /**
      * CorsAllowMethodsHeaderProvider constructor.
      *
      * @param CorsValidatorInterface $validator
      **/
     public function __construct(
-        CorsValidatorInterface $validator,
-        RequestInterface $request
+        CorsValidatorInterface $validator
     ) {
         $this->validator = $validator;
-        $this->request = $request;
     }
 
     /**
@@ -71,6 +66,6 @@ class CorsVaryHeaderProvider extends AbstractHeaderProvider implements HeaderPro
      */
     public function canApply(): bool
     {
-        return $this->validator->originIsValid() && $this->request->getMethod() == "OPTIONS" && $this->getValue();
+        return $this->validator->originIsValid() && $this->getValue();
     }
 }
