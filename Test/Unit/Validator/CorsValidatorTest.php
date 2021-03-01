@@ -101,4 +101,45 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider preflightTestDataProvider
+     */
+    public function testIsPreflightRequest($allowedOrigins, $requestOrigin, $method, $result) {
+        $this->configurationMock->method('getAllowedOrigins')->willReturn($allowedOrigins);
+        $this->requestMock->method('getHeader')->willReturn($requestOrigin);
+        $this->requestMock->method('getMethod')->willReturn($method);
+
+        return $this->assertEquals($result, $this->validator->isPreflightRequest());
+
+    }
+
+    public function preflightTestDataProvider() {
+        return [
+            'valid origin as GET' => [
+                ['https://www.example.com'],
+                'https://www.example.com',
+                'GET',
+                false,
+            ],
+            'valid origin as OPTIONS' => [
+                ['https://www.example.com', 'https://www.myotherexample.com'],
+                'https://www.example.com',
+                'OPTIONS',
+                true,
+            ],
+            'invalid origin as GET' => [
+                ['https://www.example.com'],
+                'https://www.anotherdomain.com',
+                'GET',
+                false,
+            ],
+            'invalid origin as OPTIONS' => [
+                ['https://www.example.com', 'https://www.myotherexample.com'],
+                'https://www.anotherdomain.com',
+                'OPTIONS',
+                true,
+            ],
+        ];
+    }
 }

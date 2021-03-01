@@ -75,6 +75,18 @@ class CorsValidator implements CorsValidatorInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function isPreflightRequest(): bool
+    {
+        if ($this->request instanceof HttpRequest) {
+            return $this->request->getMethod() == "OPTIONS" && $this->originHeaderExists();
+        }
+
+        return false;
+    }
+
+    /**
      * Determines whether an origin header exists with a valid scheme.
      * @return bool
      */
