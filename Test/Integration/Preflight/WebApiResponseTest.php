@@ -77,12 +77,7 @@ class WebApiResponseTest extends ControllerTestCase
      */
     public function testTheRestApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
-        $headers->addHeaderLine('Content-Type: application/json');
-
-        $this->getRequest()->setHeaders($headers);
-        $this->dispatch(self::ENDPOINT);
+        $this->dispatchToRestApiWithOrigin("https://www.example.com");
 
         /** @var Http $response */
         $response = $this->getResponse();
