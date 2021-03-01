@@ -43,7 +43,7 @@ class WebApiResponseTest extends ControllerTestCase
         $headers = new Headers();
         $headers->addHeaderLine('Origin: ' . $origin);
         $headers->addHeaderLine('Content-Type: application/json');
-        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
+        $this->getRequest()->setMethod('GET')->setHeaders($headers);
         ob_start();
         $this->dispatch(self::ENDPOINT);
         $this->getResponse()->sendResponse();
@@ -53,24 +53,8 @@ class WebApiResponseTest extends ControllerTestCase
     /**
      * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
-    public function testTheRestApiResponseContainsCrossOriginHeaders()
-    {
-        $this->dispatchToRestApiWithOrigin("https://www.example.com");
-
-        /** @var Http $response */
-        $response = $this->getResponse();
-
-        $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
-        $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
-    }
-
-    /**
-     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
-     */
     public function testItdoesNotAddAnyCrossOriginHeadersToATypicalRequest()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
         $this->dispatchToRestApi();
 
         /** @var Http $response */
@@ -88,14 +72,12 @@ class WebApiResponseTest extends ControllerTestCase
         $this->assertFalse($response->getHeader('Access-Control-Max-Age'));
     }
 
-    public function testTheRestApiWillRespondToAOptionsRequestWithA200Response()
+    /**
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
+     */
+    public function testTheRestApiWillResponseToACorsRequestWithA200Response()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
-        $headers->addHeaderLine('Content-Type: application/json');
-
-        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
-        $this->dispatchToRestApi();
+        $this->dispatchToRestApiWithOrigin('https://www.example.com');
 
         /** @var Http $response */
         $response = $this->getResponse();
@@ -103,20 +85,15 @@ class WebApiResponseTest extends ControllerTestCase
     }
 
     /**
-     * @group fit
      * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
-    public function testTheRestApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
+    public function testTheRestApiResponseContainsCrossOriginHeaders()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
-        $headers->addHeaderLine('Content-Type: application/json');
-
-        $this->getRequest()->setMethod('POST')->setHeaders($headers);
-        $this->dispatch(self::ENDPOINT);
+        $this->dispatchToRestApiWithOrigin("https://www.example.com");
 
         /** @var Http $response */
         $response = $this->getResponse();
+
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
         $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
