@@ -10,6 +10,7 @@
                 <item name="CorsAllowMethods" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowMethodsHeaderProvider</item>
                 <item name="CorsMaxAge" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsMaxAgeHeaderProvider</item>
                 <item name="CorsAllowCredentials" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowCredentialsHeaderProvider</item>
+                <item name="CorsVary" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsVaryHeaderProvider</item>
             </argument>
         </arguments>
     </type>
