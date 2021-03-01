@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Test\Integration\Response;
 
 use Magento\Framework\App\Response\Http;
@@ -66,7 +68,7 @@ class GraphQlResponseTest extends ControllerTestCase
         $this->assertSame(200, $response->getHttpResponseCode());
     }
 
-     /**
+    /**
      * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
      */
     public function testTheGraphQlResponseContainsCrossOriginHeaders()
