@@ -22,18 +22,23 @@ class WebApiResponseTest extends ControllerTestCase
 {
     const ENDPOINT = '/rest/default/V1/directory/currency';
 
-    public function getResponse()
-    {
-        if (!$this->_response) {
-            $this->_response = $this->_objectManager->get(\Magento\Framework\Webapi\Rest\Response::class);
-        }
-        return $this->_response;
-    }
-
     private function dispatchToRestApi()
     {
         ob_start();
         $this->dispatch(self::ENDPOINT);
+        $this->getResponse()->sendResponse();
+        ob_end_clean();
+    }
+
+    private function dispatchToRestApiWithOrigin(string $origin)
+    {
+        $headers = new Headers();
+        $headers->addHeaderLine('Origin: ' . $origin);
+        $headers->addHeaderLine('Content-Type: application/json');
+        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
+        ob_start();
+        $this->dispatch(self::ENDPOINT);
+        $this->getResponse()->sendResponse();
         ob_end_clean();
     }
 
