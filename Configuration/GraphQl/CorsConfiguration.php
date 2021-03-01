@@ -27,6 +27,8 @@ class CorsConfiguration implements CorsConfigurationInterface
 
     const XML_PATH_GRAPHQL_CORS_MAX_AGE = 'web/graphql/cors_max_age';
 
+    const XML_PATH_GRAPHQL_CORS_EXPOSE_HEADERS = 'web/graphql/cors_expose_headers';
+
     const XML_PATH_GRAPHQL_CORS_CREDENTIALS = 'web/graphql/cors_allow_credentials';
 
     /** @var ScopeConfigInterface */
@@ -93,5 +95,15 @@ class CorsConfiguration implements CorsConfigurationInterface
     public function getAllowCredentials(): bool
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_GRAPHQL_CORS_CREDENTIALS);
+    }
+
+    /**
+     * @return string[];
+     */
+    public function getExposedHeaders(): array
+    {
+        return $this->cleaner->processDelimitedString(
+            $this->scopeConfig->getValue(self::XML_PATH_GRAPHQL_CORS_EXPOSE_HEADERS)
+        );
     }
 }
