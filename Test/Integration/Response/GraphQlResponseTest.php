@@ -33,19 +33,6 @@ class GraphQlResponseTest extends ControllerTestCase
     /**
      * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
      */
-    public function testTheGraphQlResponseContainsCrossOriginHeaders()
-    {
-        $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
-
-        /** @var Http $response */
-        $response = $this->getResponse();
-        $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
-        $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
-    }
-
-    /**
-     * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
-     */
     public function testItdoesNotAddAnyCrossOriginHeadersToATypicalRequest()
     {
         $headers = new Headers();
@@ -67,31 +54,24 @@ class GraphQlResponseTest extends ControllerTestCase
         $this->assertFalse($response->getHeader('Access-Control-Max-Age'));
     }
 
-    public function testTheGraphQlApiWillRespondToAOptionsRequestWithA200Response()
+    /**
+     * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
+     */
+    public function testTheGraphQlApiWillResponseToACorsRequestWithA200Response()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
-        $headers->addHeaderLine('Content-Type: application/json');
-
-        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
-        $this->dispatch('/graphql');
+        $this->dispatchToGraphQlApiWithOrigin('https://www.example.com');
 
         /** @var Http $response */
         $response = $this->getResponse();
         $this->assertSame(200, $response->getHttpResponseCode());
     }
 
-    /**
+     /**
      * @magentoConfigFixture default/web/graphql/cors_allowed_origins https://www.example.com
      */
-    public function testTheGraphQlApiWillRespondToAOptionsRequestWithCorsHeadersOnTheResponse()
+    public function testTheGraphQlResponseContainsCrossOriginHeaders()
     {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: https://www.example.com');
-        $headers->addHeaderLine('Content-Type: application/json');
-
-        $this->getRequest()->setMethod('OPTIONS')->setHeaders($headers);
-        $this->dispatch('/graphql');
+        $this->dispatchToGraphQlApiWithOrigin("https://www.example.com");
 
         /** @var Http $response */
         $response = $this->getResponse();
