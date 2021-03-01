@@ -50,17 +50,6 @@ class WebApiResponseTest extends ControllerTestCase
         ob_end_clean();
     }
 
-    private function dispatchToRestApiWithOrigin(string $origin)
-    {
-        $headers = new Headers();
-        $headers->addHeaderLine('Origin: ' . $origin);
-        $headers->addHeaderLine('Content-Type: application/json');
-        $this->getRequest()->setMethod('GET')->setHeaders($headers);
-        ob_start();
-        $this->dispatch(self::ENDPOINT);
-        ob_end_clean();
-    }
-
     /**
      * @magentoConfigFixture default/web/api_rest/cors_allowed_origins https://www.example.com
      */
