@@ -46,7 +46,7 @@ composer require graycore/magento2-cors
     * `Access-Control-Allow-Credentials`
 
 * [Security By Default](./docs/stories/security.md#security-by-default)
-
+* [Vary: Origin](https://fetch.spec.whatwg.org/#cors-protocol-and-http-caches)
 ## Helpful Links
 * [FAQ](./docs/faq/faqs.md)
     * [Can I configure this from the admin panel?](./docs/faq/faqs.md#can-i-configure-this-from-the-admin-panel)
