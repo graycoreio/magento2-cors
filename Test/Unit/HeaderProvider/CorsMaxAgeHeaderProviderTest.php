@@ -63,33 +63,62 @@ class CorsMaxAgeHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider canApplyDataProvider
      */
-    public function testCanApply($maxAge, $originResult, $expected)
+    public function testCanApply($maxAge, $originResult, $isPreflightRequest, $expected)
     {
         $this->corsConfigurationMock->method('getMaxAge')->willReturn($maxAge);
         $this->corsValidatorMock->method('originIsValid')->willReturn($originResult);
+        $this->corsValidatorMock->method('isPreflightRequest')->willReturn($isPreflightRequest);
         $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
     }
 
     public function canApplyDataProvider()
     {
         return [
-            'invalid origin' => [
+            'invalid origin, cors request' => [
                 '1000',
                 false,
                 false,
+                false,
             ],
-            'valid origin with null configured maxAge' => [
+            'invalid origin, preflight request' => [
+                '1000',
+                false,
+                true,
+                false,
+            ],
+            'valid origin, cors request with null configured maxAge' => [
+                null,
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request with null configured maxAge' => [
                 null,
                 true,
                 true,
+                true,
             ],
-            'valid origin with empty configured maxAge' => [
+            'valid origin, cors request with empty configured maxAge' => [
+                '',
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request with empty configured maxAge' => [
                 '',
                 true,
                 true,
+                true,
             ],
-            'valid origin with configured age' => [
+            'valid origin, cors request with configured age' => [
                 '86400',
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request with configured age' => [
+                '86400',
+                true,
                 true,
                 true,
             ],
