@@ -83,28 +83,50 @@ class CorsAllowHeadersHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider canApplyDataProvider
      */
-    public function testCanApply($headers, $originResult, $expected)
+    public function testCanApply($headers, $originResult, $isPreflight, $expected)
     {
         $this->corsConfigurationMock->method('getAllowedHeaders')->willReturn($headers);
         $this->corsValidatorMock->method('originIsValid')->willReturn($originResult);
+        $this->corsValidatorMock->method('isPreflightRequest')->willReturn($isPreflight);
         $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
     }
 
     public function canApplyDataProvider()
     {
         return [
-            'invalid origin' => [
+            'invalid origin, cors request' => [
                 ['My-Valid-Header', 'My-Other-Valid-Header'],
                 false,
                 false,
+                false,
             ],
-            'valid origin without configured headers' => [
-                [],
+            'invalid origin, preflight request' => [
+                ['My-Valid-Header', 'My-Other-Valid-Header'],
+                false,
                 true,
                 false,
             ],
-            'valid origin with header configuration' => [
+            'valid origin, cors request without configured headers' => [
+                [],
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request without configured headers' => [
+                [],
+                true,
+                true,
+                false,
+            ],
+            'valid origin, cors request with header configuration' => [
                 ['My-Valid-Header', 'My-Other-Valid-Header'],
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request with header configuration' => [
+                ['My-Valid-Header', 'My-Other-Valid-Header'],
+                true,
                 true,
                 true,
             ],

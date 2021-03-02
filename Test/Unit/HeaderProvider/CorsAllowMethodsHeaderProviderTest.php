@@ -83,28 +83,50 @@ class CorsAllowMethodsHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider canApplyDataProvider
      */
-    public function testCanApply($methods, $originResult, $expected)
+    public function testCanApply($methods, $originResult, $isPreflightRequest, $expected)
     {
         $this->corsConfigurationMock->method('getAllowedMethods')->willReturn($methods);
         $this->corsValidatorMock->method('originIsValid')->willReturn($originResult);
+        $this->corsValidatorMock->method('isPreflightRequest')->willReturn($isPreflightRequest);
         $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
     }
 
     public function canApplyDataProvider()
     {
         return [
-            'invalid origin' => [
+            'invalid origin, cors request' => [
                 ['GET', 'POST', 'OPTIONS'],
                 false,
                 false,
+                false,
             ],
-            'valid origin without configured methods' => [
+            'invalid origin, preflight request' => [
+                ['GET', 'POST', 'OPTIONS'],
+                false,
+                true,
+                false,
+            ],
+            'valid origin, cors request, without configured methods' => [
+                [],
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request, without configured methods' => [
                 [],
                 true,
                 true,
+                true,
             ],
-            'valid origin with configured methods' => [
+            'valid origin, cors request, with configured methods' => [
                 ['GET', 'POST', 'OPTIONS'],
+                true,
+                false,
+                false,
+            ],
+            'valid origin, preflight request, with configured methods' => [
+                ['GET', 'POST', 'OPTIONS'],
+                true,
                 true,
                 true,
             ],
