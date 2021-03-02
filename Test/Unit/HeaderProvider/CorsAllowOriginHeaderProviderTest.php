@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Test\Unit\HeaderProvider;
 
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
@@ -12,7 +14,7 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 
 /**
  * Tests that the CORS AllowOrigin header is properly applied to a response
- * 
+ *
  * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
