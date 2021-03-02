@@ -78,6 +78,5 @@ class GraphQlResponseTest extends ControllerTestCase
         /** @var Http $response */
         $response = $this->getResponse();
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
-        $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
 }

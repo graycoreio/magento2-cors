@@ -95,6 +95,5 @@ class WebApiResponseTest extends ControllerTestCase
         $response = $this->getResponse();
 
         $this->assertNotFalse($response->getHeader('Access-Control-Allow-Origin'));
-        $this->assertNotFalse($response->getHeader('Access-Control-Max-Age'));
     }
 }
