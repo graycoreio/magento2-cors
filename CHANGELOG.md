@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/graycoreio/magento2-cors/compare/v1.3.2...v1.4.0) (2021-03-02)
+
+
+### Features
+
+* **graphql, rest:** add support for access-control-expose-headers ([#49](https://github.com/graycoreio/magento2-cors/issues/49)) ([53aac87](https://github.com/graycoreio/magento2-cors/commit/53aac87f4397352426dc5b8eef720ca22a5594f6))
+* **graphql, rest:** apply certain headers only to preflight requests ([#51](https://github.com/graycoreio/magento2-cors/issues/51)) ([30bcff0](https://github.com/graycoreio/magento2-cors/commit/30bcff0931134e56d0f4d4217bfe84dde1588b00))
+* **graphql,rest:** add support for Vary header with Origin ([#47](https://github.com/graycoreio/magento2-cors/issues/47)) ([e656909](https://github.com/graycoreio/magento2-cors/commit/e65690922063d7e52e0cd6bbed8643dda4a3d061))
+* **validator:** add a new method to determine whether or not a reque… ([#50](https://github.com/graycoreio/magento2-cors/issues/50)) ([8c3ef8b](https://github.com/graycoreio/magento2-cors/commit/8c3ef8b085c79dfd6aad8a6a3a725ade98e9490b))
+
 ### [1.3.2](https://github.com/graycoreio/magento2-cors/compare/v1.3.1...v1.3.2) (2020-08-10)
 
 ### [1.3.1](https://github.com/graycoreio/magento2-cors/compare/v1.3.0...v1.3.1) (2020-08-10)
