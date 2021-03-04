@@ -34,8 +34,8 @@ class CorsVaryHeaderProvider extends AbstractHeaderProvider implements HeaderPro
     /**
      * Since we'll be responding to requests differently per request origin, we now
      * need to ensure that all responses contain the vary header. Otherwise,
-     * HTTP caches, like Varnish or the browser cache will incorrectly cache
-     * results because they won't know that the per origin behavior could exist.
+     * HTTP caches, like Varnish or the browser cache, will incorrectly cache
+     * results because they won't know that the "per origin" behavior could exist.
      *
      * Additionally,
      * ```
@@ -49,7 +49,7 @@ class CorsVaryHeaderProvider extends AbstractHeaderProvider implements HeaderPro
      * Vary: Accept-Encoding, Origin
      * ```
      *
-     * So, we don't bother attempting to merge the two hears into a comma-separated list.
+     * So, we don't bother attempting to merge the two headers into a comma-separated list.
      *
      * //TODO(damienwebdev): consider the ramifications to cache size if we don't
      * normalize "Vary" this into well organized list.
