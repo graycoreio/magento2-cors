@@ -7,12 +7,7 @@
 
 namespace Graycore\Cors\Response\HeaderProvider;
 
-use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Validator\CorsValidatorInterface;
-use Magento\Framework\App\RequestInterface;
-use Magento\Framework\App\Request\Http;
-use Magento\Framework\App\Response\HeaderProvider\AbstractHeaderProvider;
-use Magento\Framework\App\Response\HeaderProvider\HeaderProviderInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
@@ -44,8 +39,7 @@ class CorsVaryHeaderProviderTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->corsValidatorMock = $this->createMock(CorsValidatorInterface::class);
-        $this->provider = new CorsVaryHeaderProvider($this->corsValidatorMock);
+        $this->provider = new CorsVaryHeaderProvider();
     }
 
     public function testGetName()
@@ -58,26 +52,8 @@ class CorsVaryHeaderProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($this::HEADER_VALUE, $this->provider->getValue(), 'Wrong default header value');
     }
 
-    /**
-     * @dataProvider canApplyDataProvider
-     */
-    public function testCanApply($originResult, $expected)
+    public function testCanApply()
     {
-        $this->corsValidatorMock->method('originIsValid')->willReturn($originResult);
-        $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
-    }
-
-    public function canApplyDataProvider()
-    {
-        return [
-            'invalid origin' => [
-                false,
-                false
-            ],
-            'valid origin' => [
-                true,
-                true,
-            ]
-        ];
+        $this->assertEquals(true, $this->provider->canApply(), 'Incorrect canApply result');
     }
 }
