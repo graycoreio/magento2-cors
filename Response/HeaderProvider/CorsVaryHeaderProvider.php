@@ -7,10 +7,7 @@
 
 namespace Graycore\Cors\Response\HeaderProvider;
 
-use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Validator\CorsValidatorInterface;
-use Magento\Framework\App\RequestInterface;
-use Magento\Framework\App\Request\Http;
 use Magento\Framework\App\Response\HeaderProvider\AbstractHeaderProvider;
 use Magento\Framework\App\Response\HeaderProvider\HeaderProviderInterface;
 
@@ -34,23 +31,13 @@ class CorsVaryHeaderProvider extends AbstractHeaderProvider implements HeaderPro
      */
     protected $headerValue = 'Origin';
 
-    /** @var CorsValidatorInterface */
-    protected $validator;
-
     /**
-     * CorsAllowMethodsHeaderProvider constructor.
+     * Since we'll be responding to requests differently per request origin, we now
+     * need to ensure that all responses contain the vary header. Otherwise,
+     * HTTP caches, like Varnish or the browser cache will incorrectly cache
+     * results because they won't know that the per origin behavior could exist.
      *
-     * @param CorsValidatorInterface $validator
-     **/
-    public function __construct(
-        CorsValidatorInterface $validator
-    ) {
-        $this->validator = $validator;
-    }
-
-    /**
-     * We check to see if we can apply the header. Note that, for HTTP,
-     *
+     * Additionally,
      * ```
      * Vary: Accept-Encoding
      * Vary: Origin
@@ -63,9 +50,12 @@ class CorsVaryHeaderProvider extends AbstractHeaderProvider implements HeaderPro
      * ```
      *
      * So, we don't bother attempting to merge the two hears into a comma-separated list.
+     *
+     * //TODO(damienwebdev): consider the ramifications to cache size if we don't
+     * normalize "Vary" this into well organized list.
      */
     public function canApply(): bool
     {
-        return $this->validator->originIsValid() && $this->getValue();
+        return true;
     }
 }

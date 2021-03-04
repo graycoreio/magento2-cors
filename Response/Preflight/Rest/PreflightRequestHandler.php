@@ -46,7 +46,10 @@ class PreflightRequestHandler
     public function aroundDispatch(RestController $subject, callable $next, RequestInterface $request)
     {
         if ($request instanceof Http && $request->isOptions()) {
-            return $this->_headerManager->applyHeaders($this->_response);
+            $this->_headerManager->applyHeaders($this->_response);
+            $this->_response->setPublicHeaders(86400);
+            return $this->_response;
+            
         }
 
         /** @var HttpResponse $response */

@@ -47,7 +47,7 @@ class PreflightRequestHandler
     {
         if ($request instanceof Http && $request->isOptions()) {
             $this->_headerManager->beforeSendResponse($this->_response);
-            $this->_response->setNoCacheHeaders();
+            $this->_response->setPublicHeaders(86400);
             return $this->_response;
         }
 
