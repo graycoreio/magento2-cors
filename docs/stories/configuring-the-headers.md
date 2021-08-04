@@ -49,3 +49,7 @@ return [
 
 > You can also optionally set the `cors_allowed_origins` key to `*` if you want to allow ALL origins access to the resource, but we strongly suggest you [understand the ramifications of this before doing so.](/docs/stories/security.md)
 Note also that the CORS specification disallows a wildcard for Allowed Origins if the `cors_allow_credentials` flag is enabled. If this is the case, the server will instead echo the request Origin back as the Allow-Origin value. 
+
+
+## Examples
+* [PWAs (Angular, PWA Studio, etc)](./examples/pwa-configuration.php)
