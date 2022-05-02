@@ -18,6 +18,9 @@ class ConfigurationCleaner
     
     public function processDelimitedString($string, $delimiter = ',')
     {
+        if(empty($string)) {
+            return [];
+        }
         $configuration = explode($delimiter, $string);
         $cleanedConfiguration = [];
         $cleanedConfiguration = array_map(
