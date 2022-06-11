@@ -37,7 +37,6 @@
         ]
     },
     "require": {
-        "php": ">=7.0.0",
         "magento/framework": "^102.0 || ^103.0"
     },
     "require-dev": {
@@ -53,12 +52,6 @@
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true,
-        "platform": {
-            "php": "7.2.0",
-            "ext-bcmath": "7.2.0",
-            "ext-gd": "7.2.0",
-            "ext-curl": "7.2.0"
-        }
+        "sort-packages": true
     }
 }
