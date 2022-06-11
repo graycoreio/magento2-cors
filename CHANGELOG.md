@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-rc.0](https://github.com/graycoreio/magento2-cors/compare/v1.6.0...v2.0.0-rc.0) (2022-06-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* If you were expecting to use the native GraphQl/REST controller when computing CORS headers (and everything else that entails - like having a Magento session, for example) that guarantee is no-longer provided.
+
+### Features
+
+* **graphql,rest:** add faster CORS headers ([#66](https://github.com/graycoreio/magento2-cors/issues/66)) ([cefd663](https://github.com/graycoreio/magento2-cors/commit/cefd6631d4f2aaf5347875a02d773317480783d5))
+
+
+* denote breaking changes ([b98b9bc](https://github.com/graycoreio/magento2-cors/commit/b98b9bcfcefa533f84e85921a9becb5be2a9ff71))
+
 ## [1.6.0](https://github.com/graycoreio/magento2-cors/compare/v1.4.1...v1.6.0) (2022-06-11)
 
 
