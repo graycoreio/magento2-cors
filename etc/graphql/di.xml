@@ -15,6 +15,19 @@
             </argument>
         </arguments>
     </type>
+    <type name="Graycore\Cors\Response\HeaderManager">
+        <arguments>
+            <argument name="headerProviderList" xsi:type="array">
+                <item name="CorsAllowHeaders" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowHeadersHeaderProvider</item>
+                <item name="CorsAllowOrigin" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowOriginHeaderProvider</item>
+                <item name="CorsAllowMethods" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowMethodsHeaderProvider</item>
+                <item name="CorsMaxAge" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsMaxAgeHeaderProvider</item>
+                <item name="CorsExposeHeaders" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsExposeHeadersProvider</item>
+                <item name="CorsAllowCredentials" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsAllowCredentialsHeaderProvider</item>
+                <item name="CorsVary" xsi:type="object">Graycore\Cors\Response\HeaderProvider\CorsVaryHeaderProvider</item>
+            </argument>
+        </arguments>
+    </type>
     <type name="Magento\GraphQl\Controller\GraphQl">
         <plugin name="graycoreCorsPreflightHandlerGraphQl" type="Graycore\Cors\Response\Preflight\GraphQl\PreflightRequestHandler" />
     </type>
