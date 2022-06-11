@@ -1,0 +1,5 @@
+<config>
+    <type name="Magento\Framework\AppInterface">
+        <plugin name="graycoreCorsLauncher" type="Graycore\Cors\Plugin\FastLauncher"/>
+    </type>
+</config>
