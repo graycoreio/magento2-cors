@@ -14,11 +14,11 @@ mysql -u root -proot < ./ci/scripts/create-database.sql
 echo 'copying ci/phpunit.xml'
 cp ci/phpunit.xml ../magento2/dev/tests/integration/phpunit.xml
 
-if [ "$magentoTag" = "2.3" ]
+if [[ $magentoTag =~ ^2.3 ]]
 then
   echo 'copying ci/install-mysql-config-2.3.php'
   cp ci/install-config-mysql-2.3.php ../magento2/dev/tests/integration/etc/install-config-mysql.php
-elif [ "$magentoTag" = "2.4" ]
+elif [[ $magentoTag =~ ^2.4 ]]
 then
   echo 'copying ci/install-mysql-config-2.4.php'
   cp ci/install-config-mysql-2.4.php ../magento2/dev/tests/integration/etc/install-config-mysql.php
