@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/graycoreio/magento2-cors/compare/v1.4.1...v1.6.0) (2022-06-11)
+
+
+### Features
+
+* add Magento v2.4.4 and PHP8.1 support ([#70](https://github.com/graycoreio/magento2-cors/issues/70)) ([6e8bfe1](https://github.com/graycoreio/magento2-cors/commit/6e8bfe184e47e602b26c001d986bb296d42c3665))
+* **rest:** extend REST request to allow OPTIONS without error ([#55](https://github.com/graycoreio/magento2-cors/issues/55)) ([eb1df2d](https://github.com/graycoreio/magento2-cors/commit/eb1df2d0c25897897998e8e3f88fcec500a8a3f8))
+
 ### [1.4.1](https://github.com/graycoreio/magento2-cors/compare/v1.4.0...v1.4.1) (2021-03-04)
 
 

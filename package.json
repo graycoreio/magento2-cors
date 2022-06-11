@@ -1,7 +1,7 @@
 {
   "name": "@graycore/magento2-cors",
   "description": "A Magento 2 module that enables CORS on the GraphQL API",
-  "version": "1.4.1",
+  "version": "1.6.0",
   "directories": {
     "doc": "docs"
   },
