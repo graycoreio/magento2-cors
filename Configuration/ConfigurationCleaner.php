@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Graycore, LLC. All rights reserved.
  * See LICENSE.md for details.
  */
+
 namespace Graycore\Cors\Configuration;
 
 /**
@@ -15,10 +17,10 @@ namespace Graycore\Cors\Configuration;
  */
 class ConfigurationCleaner
 {
-    
+
     public function processDelimitedString($string, $delimiter = ',')
     {
-        if(empty($string)) {
+        if (empty($string)) {
             return [];
         }
         $configuration = explode($delimiter, $string);
