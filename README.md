@@ -1,9 +1,16 @@
 # Magento 2 CORS
 
+<div align="center">
+
 [![Packagist Downloads](https://img.shields.io/packagist/dm/graycore/magento2-cors?color=blue)](https://packagist.org/packages/graycore/magento2-cors/stats)
 [![Packagist Version](https://img.shields.io/packagist/v/graycore/magento2-cors?color=blue)](https://packagist.org/packages/graycore/magento2-cors)
 [![Packagist License](https://img.shields.io/packagist/l/graycore/magento2-cors)](https://github.com/graycoreio/magento2-cors/blob/master/LICENSE)
-[![Build Status](https://graycore.visualstudio.com/open-source/_apis/build/status/graycoreio.magento2-cors?branchName=master)](https://graycore.visualstudio.com/open-source/_build/latest?definitionId=14&branchName=master)
+[![Unit Test](https://github.com/graycoreio/magento2-cors/actions/workflows/unit.yaml/badge.svg)](https://github.com/graycoreio/magento2-cors/actions/workflows/unit.yaml)
+[![Integration Test](https://github.com/graycoreio/magento2-cors/actions/workflows/integration.yaml/badge.svg)](https://github.com/graycoreio/magento2-cors/actions/workflows/integration.yaml)
+[![Installation Test](https://github.com/graycoreio/magento2-cors/actions/workflows/install.yaml/badge.svg)](https://github.com/graycoreio/magento2-cors/actions/workflows/install.yaml)
+
+</div>
+
 
 ## Magento Version Support
 ![Magento v2.3 Supported](https://img.shields.io/badge/Magento-2.3-brightgreen.svg?labelColor=2f2b2f&logo=magento&logoColor=f26724&color=464246&longCache=true&style=flat)
