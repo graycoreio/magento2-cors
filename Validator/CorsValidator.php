@@ -94,7 +94,7 @@ class CorsValidator implements CorsValidatorInterface
     {
         try {
             return $this->request->getHeader('Origin') ? true : false;
-        } catch (\Zend\Uri\Exception\InvalidArgumentException $exception) {
+        } catch (\InvalidArgumentException $exception) {
             // In the event of an invalid URI scheme, e.g. chrome-extension://
             return false;
         }
