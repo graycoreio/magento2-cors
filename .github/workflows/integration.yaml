@@ -29,7 +29,7 @@ jobs:
         - run: echo ${{ steps.supported-version.outputs.matrix }}
   integration-workflow:
     needs: compute_matrix
-    uses: graycoreio/github-actions-magento2/.github/workflows/integration.yaml@add_get_magento_version
+    uses: graycoreio/github-actions-magento2/.github/workflows/integration.yaml@main
     with:
       package_name: graycore/magento2-cors
       matrix: ${{ needs.compute_matrix.outputs.matrix }}
