@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/graycoreio/magento2-cors/compare/v2.0.0-rc.0...v2.0.0) (2022-10-14)
+
+
+### Bug Fixes
+
+* add compatability between Laminas\Http and Zend\Http ([#75](https://github.com/graycoreio/magento2-cors/issues/75)) ([b1d4af1](https://github.com/graycoreio/magento2-cors/commit/b1d4af124b1a1a0f3ad19009a0eba5d9d973309f))
+
 ## [2.0.0-rc.0](https://github.com/graycoreio/magento2-cors/compare/v1.6.0...v2.0.0-rc.0) (2022-06-11)
 
 
