@@ -3,7 +3,7 @@ name: Unit Test
 on:
   workflow_call: {}
   schedule:
-    - 0 12 10 * *
+    - cron: 0 12 10 * *
   push:
     branches:
     - master
