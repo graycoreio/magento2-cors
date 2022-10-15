@@ -1,6 +1,9 @@
 name: Installation Test
 
 on:
+  workflow_call: {}
+  schedule:
+    - 0 12 10 * *
   push:
     branches:
     - master
