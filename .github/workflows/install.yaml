@@ -1,7 +1,7 @@
 name: Installation Test
 
 on:
-  workflow_call: {}
+  workflow_dispatch: {}
   schedule:
     - cron: 0 12 10 * *
   push:
