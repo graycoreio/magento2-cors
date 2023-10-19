@@ -44,9 +44,10 @@ class CorsAllowOriginHeaderProvider extends AbstractHeaderProvider implements He
     /**
      * CorsAllowMethodsHeaderProvider constructor.
      *
-     * @param CorsConfigurationInterface $configuration
      * @param CorsValidatorInterface $validator
-     **/
+     * @param CorsConfigurationInterface $configuration
+     * @param RequestInterface $request
+     */
     public function __construct(
         CorsValidatorInterface $validator,
         CorsConfigurationInterface $configuration,

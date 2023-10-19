@@ -39,8 +39,9 @@ class PreflightRequestHandler
     }
 
     /**
-     * @param RestRequest $subject
-     *
+     * @param RestController $subject
+     * @param callable $next
+     * @param RequestInterface $request
      * @return string
      */
     public function aroundDispatch(RestController $subject, callable $next, RequestInterface $request)
