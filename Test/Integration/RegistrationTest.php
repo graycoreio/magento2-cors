@@ -20,6 +20,9 @@ use PHPUnit\Framework\TestCase;
  */
 class RegistrationTest extends TestCase
 {
+    /**
+     * @var string
+     */
     private $moduleName = "Graycore_Cors";
 
     public function testItRegistersTheModuleIntoMagento()

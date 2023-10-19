@@ -27,7 +27,8 @@ class CorsValidator implements CorsValidatorInterface
     /**
      * CorsAllowHeadersHeaderProvider constructor.
      *
-     * @param ScopeConfigInterface $scopeConfig
+     * @param CorsConfigurationInterface $configuration
+     * @param RequestInterface $request
      */
     public function __construct(CorsConfigurationInterface $configuration, RequestInterface $request)
     {
@@ -75,7 +76,7 @@ class CorsValidator implements CorsValidatorInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isPreflightRequest(): bool
     {

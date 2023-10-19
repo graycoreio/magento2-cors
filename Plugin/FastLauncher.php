@@ -38,6 +38,7 @@ class FastLauncher
     /**
      * @param ObjectManagerInterface $objectManager
      * @param AreaList $areaList
+     * @param RequestHttp $request
      * @param ConfigLoaderInterface $configLoader
      * @param State $state
      */
