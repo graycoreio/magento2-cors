@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.1](https://github.com/graycoreio/magento2-cors/compare/v2.0.0...v2.0.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* `Access-Control-Expose-Headers` only set on preflight ([#84](https://github.com/graycoreio/magento2-cors/issues/84)) ([f2515c8](https://github.com/graycoreio/magento2-cors/commit/f2515c831641eeb9cc3dbefc082a14706158581b))
+* wrong di.xml configuration - missing noNamespaceSchemaLocation and xmlns:xsi ([#82](https://github.com/graycoreio/magento2-cors/issues/82)) ([104fd5d](https://github.com/graycoreio/magento2-cors/commit/104fd5dcb3a1c00e83a06973719d4aa4683cdcc6))
+
 ## [2.0.0](https://github.com/graycoreio/magento2-cors/compare/v2.0.0-rc.0...v2.0.0) (2022-10-14)
 
 
