@@ -8,6 +8,7 @@ return [
                     'cors_max_age' => 86400,
                     'cors_allow_credentials' => 1,
                     'cors_allowed_methods' => 'POST, OPTIONS, GET',
+                    'cors_expose_headers' => 'X-Magento-Cache-Id',
                     'cors_allowed_headers' =>
                         'Content-Currency, Store, X-Magento-Cache-Id, X-Captcha, Content-Type, Authorization, DNT, TE',
                     // Angular
