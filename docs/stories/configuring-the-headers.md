@@ -17,6 +17,8 @@ We provide several configuration keys for you to configure. The configurations b
 * `web/api_rest/cors_expose_headers` - A comma separated list that indicates which headers can be exposed as part of the response.
 * `web/api_rest/cors_allow_credentials` - Whether to allow credentials on CORS requests
 
+### Configuring for local or on-premises installations
+
 You can add the following to your `app/etc/env.php` to configure the package.
 
 ```php
@@ -50,6 +52,11 @@ return [
 > You can also optionally set the `cors_allowed_origins` key to `*` if you want to allow ALL origins access to the resource, but we strongly suggest you [understand the ramifications of this before doing so.](/docs/stories/no-wild-card.md)
 Note also that the CORS specification disallows a wildcard for Allowed Origins if the `cors_allow_credentials` flag is enabled. If this is the case, the server will instead echo the request Origin back as the Allow-Origin value. 
 
+### Configuring for Commerce Cloud
+
+In Commerce Cloud environments, the app/etc/env.php file is unavailable for configuring this module. Instead, use the cloud UI to set ENV settings, as documented at https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/env/variable-levels.html and https://experienceleague.adobe.com/en/docs/commerce-operations/configuration-guide/paths/override-config-settings.
+Here's an example of syntax for the cors_allowed_methods value:
+![Image from Commerce Cloud UI](./examples/cors_allowed_methods-in-cloud.jpg)
 
 ## Examples
 * [PWAs (Angular, PWA Studio, etc)](./examples/pwa-configuration.php)
