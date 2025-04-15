@@ -2,6 +2,7 @@
 
 namespace Graycore\Cors\Plugin;
 
+use Magento\Framework\App\Area;
 use Magento\Framework\App\AreaList;
 use Magento\Framework\App\State;
 use Magento\Framework\ObjectManager\ConfigLoaderInterface;
@@ -60,6 +61,9 @@ class FastLauncher
     {
         if ($this->_request->getMethod() === RequestHttp::METHOD_OPTIONS) {
             $areaCode = $this->_areaList->getCodeByFrontName($this->_request->getFrontName());
+            if(!($areaCode === Area::AREA_WEBAPI_REST || $areaCode === Area::AREA_GRAPHQL)) {
+                return $proceed();
+            }
             $this->_state->setAreaCode($areaCode);
             $this->_objectManager->configure($this->_configLoader->load($areaCode));
             /** @var \Graycore\Cors\Controller\NoopController::class */
