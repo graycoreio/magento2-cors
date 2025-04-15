@@ -29,7 +29,6 @@ jobs:
       steps:
         - uses: graycoreio/github-actions-magento2/supported-version@main
           id: supported-version
-        - run: echo ${{ steps.supported-version.outputs.matrix }}
   integration-workflow:
     needs: compute_matrix
     uses: graycoreio/github-actions-magento2/.github/workflows/integration.yaml@main
