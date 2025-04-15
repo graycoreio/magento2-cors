@@ -9,7 +9,7 @@ namespace Graycore\Cors\Test\Integration\Response;
 
 use Magento\Framework\App\Response\Http;
 use Magento\TestFramework\TestCase\AbstractController as ControllerTestCase;
-use Zend\Http\Headers;
+use Laminas\Http\Headers;
 
 /**
  * Tests that the responses to GraphQl API requests
