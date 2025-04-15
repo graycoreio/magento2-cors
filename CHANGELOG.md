@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.1](https://github.com/graycoreio/magento2-cors/compare/v2.1.0...v2.1.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* prevent 500 errors on frontend/admin routes for options requests ([627a211](https://github.com/graycoreio/magento2-cors/commit/627a21190d3636ae32303da738e87182c1536bf6))
+
 ## [2.1.0](https://github.com/graycoreio/magento2-cors/compare/v2.0.1...v2.1.0) (2024-10-10)
 
 
