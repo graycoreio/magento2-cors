@@ -1,4 +1,4 @@
-name: Integration Test
+name: Check Extension
 
 on:
   workflow_dispatch: {}
@@ -29,13 +29,13 @@ jobs:
       steps:
         - uses: graycoreio/github-actions-magento2/supported-version@main
           id: supported-version
-  integration-workflow:
+          with:
+              include_services: true
+  check-extension:
     needs: compute_matrix
-    uses: graycoreio/github-actions-magento2/.github/workflows/integration.yaml@main
+    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@main
     with:
-      package_name: graycore/magento2-cors
       matrix: ${{ needs.compute_matrix.outputs.matrix }}
-      test_command: ../../../vendor/bin/phpunit ../../../vendor/graycore/magento2-cors/Test/Integration
       fail-fast: false
     secrets:
       composer_auth: ${{ secrets.COMPOSER_AUTH }}
