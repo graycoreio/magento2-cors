@@ -10,14 +10,19 @@ namespace Graycore\Cors\Configuration;
 /**
  * ConfigurationCleaner is responsible processing end-user specified configuration values
  * into values utilizable by the module.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
  */
 class ConfigurationCleaner
 {
-
+    /**
+     * Process a delimited string into an array. The delimiter is assumed to be a comma by default.
+     *
+     * @param string $string
+     * @param string $delimiter
+     * @return array
+     */
     public function processDelimitedString($string, $delimiter = ',')
     {
         if (empty($string)) {

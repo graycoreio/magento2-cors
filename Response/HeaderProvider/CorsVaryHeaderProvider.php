@@ -14,7 +14,6 @@ use Magento\Framework\App\Response\HeaderProvider\HeaderProviderInterface;
 /**
  * CorsVaryHeaderProvider is responsible for adding the header
  * Vary Header to a response.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors

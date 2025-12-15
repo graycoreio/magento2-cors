@@ -13,7 +13,6 @@ use Magento\Framework\App\Response\HeaderProvider\HeaderProviderInterface;
 /**
  * CorsAllowCredentialsHeaderProvider is responsible for adding the header
  * Access-Control-Allow-Credentials to a response.
- * @author    Matthew O'Loughlin <matthew@aligent.com.au>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -43,11 +42,21 @@ class CorsAllowCredentialsHeaderProvider extends AbstractHeaderProvider implemen
         $this->validator = $validator;
     }
 
+    /**
+     * Get the header value.
+     *
+     * @return string
+     */
     public function getValue()
     {
         return "true";
     }
 
+    /**
+     * Determine if the header can be applied.
+     *
+     * @return bool
+     */
     public function canApply()
     {
         return $this->validator->originIsValid() && $this->configuration->getAllowCredentials();

@@ -12,7 +12,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests that the Vary header is properly applied to a response
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -20,12 +19,12 @@ use PHPUnit\Framework\MockObject\MockObject;
 class CorsVaryHeaderProviderTest extends \PHPUnit\Framework\TestCase
 {
     /** Vary Header name */
-    const HEADER_NAME = 'Vary';
+    public const HEADER_NAME = 'Vary';
 
     /**
      * Vary Header value
      */
-    const HEADER_VALUE = 'Origin';
+    public const HEADER_VALUE = 'Origin';
 
     /**
      * @var CorsVaryHeaderProvider

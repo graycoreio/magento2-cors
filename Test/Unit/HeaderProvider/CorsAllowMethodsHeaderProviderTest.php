@@ -12,7 +12,6 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 /**
  * Tests that the CORS AllowMethods header
  * is properly applied to a response
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -20,12 +19,12 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 class CorsAllowMethodsHeaderProviderTest extends \PHPUnit\Framework\TestCase
 {
     /** Access-Control-Allow-Methods Header name */
-    const HEADER_NAME = 'Access-Control-Allow-Methods';
+    public const HEADER_NAME = 'Access-Control-Allow-Methods';
 
     /**
      * Access-Control-Allow-Methods Header value
      */
-    const HEADER_VALUE = 'GET,POST,OPTIONS';
+    public const HEADER_VALUE = 'GET,POST,OPTIONS';
 
     /**
      * @var CorsAllowMethodsHeaderProvider

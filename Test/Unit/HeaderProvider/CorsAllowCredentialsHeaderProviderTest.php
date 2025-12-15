@@ -12,7 +12,6 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 /**
  * Tests that the CORS AllowCredentials header
  * is properly applied to a response
- * @author    Matthew O'Loughlin <matthew@aligent.com.au>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -20,7 +19,7 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 class CorsAllowCredentialsHeaderProviderTest extends \PHPUnit\Framework\TestCase
 {
     /** Access-Control-Allow-Credentials Header name */
-    const HEADER_NAME = 'Access-Control-Allow-Credentials';
+    public const HEADER_NAME = 'Access-Control-Allow-Credentials';
 
     /**
      * @var CorsAllowCredentialsHeaderProvider

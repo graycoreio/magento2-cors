@@ -12,24 +12,23 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 /**
  * CorsConfiguration is responsible for retrieving the Configuration
  * for the GraphQL Cors settings from the Magento Configuration.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
  */
 class CorsConfiguration implements CorsConfigurationInterface
 {
-    const XML_PATH_GRAPHQL_CORS_ORIGINS = 'web/graphql/cors_allowed_origins';
+    public const XML_PATH_GRAPHQL_CORS_ORIGINS = 'web/graphql/cors_allowed_origins';
 
-    const XML_PATH_GRAPHQL_CORS_METHODS = 'web/graphql/cors_allowed_methods';
+    public const XML_PATH_GRAPHQL_CORS_METHODS = 'web/graphql/cors_allowed_methods';
 
-    const XML_PATH_GRAPHQL_CORS_HEADERS = 'web/graphql/cors_allowed_headers';
+    public const XML_PATH_GRAPHQL_CORS_HEADERS = 'web/graphql/cors_allowed_headers';
 
-    const XML_PATH_GRAPHQL_CORS_MAX_AGE = 'web/graphql/cors_max_age';
+    public const XML_PATH_GRAPHQL_CORS_MAX_AGE = 'web/graphql/cors_max_age';
 
-    const XML_PATH_GRAPHQL_CORS_EXPOSE_HEADERS = 'web/graphql/cors_expose_headers';
+    public const XML_PATH_GRAPHQL_CORS_EXPOSE_HEADERS = 'web/graphql/cors_expose_headers';
 
-    const XML_PATH_GRAPHQL_CORS_CREDENTIALS = 'web/graphql/cors_allow_credentials';
+    public const XML_PATH_GRAPHQL_CORS_CREDENTIALS = 'web/graphql/cors_allow_credentials';
 
     /** @var ScopeConfigInterface */
     private $scopeConfig;
@@ -49,8 +48,8 @@ class CorsConfiguration implements CorsConfigurationInterface
     }
 
     /**
-     * Takes the configuration for Cors Origins
-     * and parses it into an array of allowed origins
+     * Takes the configuration for Cors Origins and parses it into an array of allowed origins.
+     *
      * @return array
      */
     public function getAllowedOrigins(): array
@@ -61,8 +60,9 @@ class CorsConfiguration implements CorsConfigurationInterface
     }
 
     /**
-     * Retrieves the allowed CORS headers from configuration
-     * @return string;
+     * Retrieves the allowed CORS headers from configuration.
+     *
+     * @return array
      */
     public function getAllowedHeaders(): array
     {
@@ -72,7 +72,9 @@ class CorsConfiguration implements CorsConfigurationInterface
     }
 
     /**
-     * @return string[];
+     * Get the allowed methods.
+     *
+     * @return string[]
      */
     public function getAllowedMethods(): array
     {
@@ -82,7 +84,9 @@ class CorsConfiguration implements CorsConfigurationInterface
     }
 
     /**
-     * @return string;
+     * Get the max age value.
+     *
+     * @return string
      */
     public function getMaxAge(): string
     {
@@ -90,6 +94,8 @@ class CorsConfiguration implements CorsConfigurationInterface
     }
 
     /**
+     * Get whether credentials are allowed.
+     *
      * @return bool
      */
     public function getAllowCredentials(): bool
@@ -98,7 +104,9 @@ class CorsConfiguration implements CorsConfigurationInterface
     }
 
     /**
-     * @return string[];
+     * Get the exposed headers.
+     *
+     * @return string[]
      */
     public function getExposedHeaders(): array
     {

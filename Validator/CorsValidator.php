@@ -10,7 +10,6 @@ use Magento\Framework\App\Request\Http as HttpRequest;
 /**
  * CorsValidator is responsible for validating that a request should
  * apply CORS headers to its response.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -37,8 +36,8 @@ class CorsValidator implements CorsValidatorInterface
     }
 
     /**
-     * Determines whether or not the request origin
-     * is one of the origins configured for the application.
+     * Determines whether or not the request origin is one of the origins configured for the application.
+     *
      * @return bool
      */
     private function requestOriginExistsInConfiguration()
@@ -47,8 +46,8 @@ class CorsValidator implements CorsValidatorInterface
     }
 
     /**
-     * Determines whether or the configuration specifies that
-     * all origins should be allowed.
+     * Determines whether or the configuration specifies that all origins should be allowed.
+     *
      * @return bool
      */
     private function configurationIsWildcard(): bool
@@ -57,8 +56,8 @@ class CorsValidator implements CorsValidatorInterface
     }
 
     /**
-     * Determines whether or not the origin of a request is valid
-     * and should have CORS headers applied.
+     * Determines whether or not the origin of a request is valid and should have CORS headers applied.
+     *
      * @return bool
      */
     public function originIsValid(): bool
@@ -89,6 +88,7 @@ class CorsValidator implements CorsValidatorInterface
 
     /**
      * Determines whether an origin header exists with a valid scheme.
+     *
      * @return bool
      */
     private function originHeaderExists(): bool

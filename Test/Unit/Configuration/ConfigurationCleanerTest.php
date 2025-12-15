@@ -9,7 +9,6 @@ use Graycore\Cors\Configuration\ConfigurationCleaner;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 /**
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors

@@ -20,6 +20,12 @@ class NoopController
      */
     private $_response;
 
+    /**
+     * NoopController constructor.
+     *
+     * @param HeaderManager $headerManager
+     * @param ResponseHttp $response
+     */
     public function __construct(
         HeaderManager $headerManager,
         ResponseHttp $response

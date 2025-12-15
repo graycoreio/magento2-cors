@@ -15,14 +15,13 @@ use Laminas\Http\Headers;
  * Tests that the responses to REST API requests
  * properly respond with the CORS headers in the
  * default configuration
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
  */
 class WebApiResponseTest extends ControllerTestCase
 {
-    const ENDPOINT = '/rest/default/V1/directory/currency';
+    public const ENDPOINT = '/rest/default/V1/directory/currency';
 
     public function getResponse()
     {

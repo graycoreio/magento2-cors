@@ -12,7 +12,6 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
  * Tests that the Cors Configuration object properly
  * retrieves, parses and transforms configuration
  * settings from Magento configuration.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors

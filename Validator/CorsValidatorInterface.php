@@ -10,8 +10,8 @@ interface CorsValidatorInterface
 {
 
     /**
-     * Determines whether or not the origin of a request is valid
-     * and should have CORS headers applied.
+     * Determines whether or not the origin of a request is valid and should have CORS headers applied.
+     *
      * @api
      * @return bool
      */
@@ -19,7 +19,9 @@ interface CorsValidatorInterface
 
     /**
      * Determines whether or not the current request is a preflight request.
+     *
      * @api
+     * @return bool
      */
     public function isPreflightRequest(): bool;
 }

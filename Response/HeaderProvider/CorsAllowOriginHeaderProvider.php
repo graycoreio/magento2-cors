@@ -15,7 +15,6 @@ use Magento\Framework\App\Response\HeaderProvider\HeaderProviderInterface;
 /**
  * CorsAllowOriginHeaderProvider is responsible for adding the header
  * Access-Control-Allow-Origin to a response.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -58,16 +57,31 @@ class CorsAllowOriginHeaderProvider extends AbstractHeaderProvider implements He
         $this->request = $request;
     }
 
+    /**
+     * Check if allowed origin is wildcard.
+     *
+     * @return bool
+     */
     private function allowedOriginIsWildcard()
     {
         return in_array('*', $this->configuration->getAllowedOrigins());
     }
 
+    /**
+     * Determine if the header can be applied.
+     *
+     * @return bool
+     */
     public function canApply()
     {
         return $this->validator->originIsValid() && $this->getValue();
     }
 
+    /**
+     * Get the header value.
+     *
+     * @return string
+     */
     public function getValue()
     {
         if ($this->configuration->getAllowCredentials() && $this->allowedOriginIsWildcard()) {

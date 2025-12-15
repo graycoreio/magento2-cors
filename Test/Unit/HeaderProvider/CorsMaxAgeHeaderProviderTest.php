@@ -13,7 +13,6 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 /**
  * Tests that the CORS MaxAge header
  * is properly applied to a response
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
@@ -21,12 +20,12 @@ use Graycore\Cors\Validator\CorsValidatorInterface;
 class CorsMaxAgeHeaderProviderTest extends \PHPUnit\Framework\TestCase
 {
     /** Access-Control-Max-Age Header name */
-    const HEADER_NAME = 'Access-Control-Max-Age';
+    public const HEADER_NAME = 'Access-Control-Max-Age';
 
     /**
      * Access-Control-Max-Age Header value
      */
-    const HEADER_VALUE = '86400';
+    public const HEADER_VALUE = '86400';
 
     /**
      * @var CorsMaxAgeHeaderProvider

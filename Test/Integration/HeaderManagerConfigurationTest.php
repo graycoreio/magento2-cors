@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * Tests that ensure that the CORS headers are properly
  * dependency injected into the HeaderManager
- * @author    Graycore <damien@graycore.io>
  * @copyright 2019 Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors

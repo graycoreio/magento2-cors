@@ -57,12 +57,18 @@ class FastLauncher
         $this->_request = $request;
     }
 
+    /**
+     * Intercept application launch to handle preflight requests.
+     *
+     * @param \Magento\Framework\AppInterface $subject
+     * @param callable $proceed
+     * @return \Magento\Framework\App\ResponseInterface
+     */
     public function aroundLaunch(\Magento\Framework\AppInterface $subject, callable $proceed)
     {
         if ($this->_request->getMethod() === RequestHttp::METHOD_OPTIONS) {
             $areaCode = $this->_areaList->getCodeByFrontName($this->_request->getFrontName());
-            if(
-                    $areaCode !== Area::AREA_WEBAPI_REST &&
+            if ($areaCode !== Area::AREA_WEBAPI_REST &&
                     $areaCode !== Area::AREA_GRAPHQL
             ) {
                 return $proceed();

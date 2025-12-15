@@ -13,7 +13,6 @@ use Graycore\Cors\Configuration\Rest\CorsConfiguration as RestCorsConfiguration;
 
 /**
  * Tests that the Dependency Injection for the module is setup correctly.
- * @author    Graycore <damien@graycore.io>
  * @copyright Graycore, LLC (https://www.graycore.io/)
  * @license   MIT https://github.com/graycoreio/magento2-cors/license
  * @link      https://github.com/graycoreio/magento2-cors
