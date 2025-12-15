@@ -12,12 +12,12 @@
     "scripts": {
         "test": "phpunit --bootstrap vendor/autoload.php test",
         "unit-test": "vendor/bin/phpunit ./Test/Unit",
-        "lint": "phpcs . --standard=Magento2 --ignore='vendor/*'",
+        "lint": "phpcs . --standard=Magento2 --ignore='vendor/*,node_modules/*'",
         "post-install-cmd": [
-            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,../../magento/php-compatibility-fork/)"
         ],
         "post-update-cmd": [
-            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,../../magento/php-compatibility-fork/)"
         ]
     },
     "archive": {
@@ -40,7 +40,8 @@
         "magento/framework": "^102.0 || ^103.0"
     },
     "require-dev": {
-        "magento/magento-coding-standard": ">=6.0",
+        "magento/magento-coding-standard": "^38.0",
+        "magento/php-compatibility-fork": "^0.1.0",
         "phpunit/phpunit": "^8.2 || ^9.0",
         "squizlabs/php_codesniffer": "^3.4"
     },
