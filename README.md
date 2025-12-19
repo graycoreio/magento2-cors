@@ -5,9 +5,9 @@
 [![Packagist Downloads](https://img.shields.io/packagist/dm/graycore/magento2-cors?color=blue)](https://packagist.org/packages/graycore/magento2-cors/stats)
 [![Packagist Version](https://img.shields.io/packagist/v/graycore/magento2-cors?color=blue)](https://packagist.org/packages/graycore/magento2-cors)
 [![Packagist License](https://img.shields.io/packagist/l/graycore/magento2-cors)](https://github.com/graycoreio/magento2-cors/blob/master/LICENSE)
-[![Unit Test](https://github.com/graycoreio/magento2-cors/actions/workflows/unit.yaml/badge.svg)](https://github.com/graycoreio/magento2-cors/actions/workflows/unit.yaml)
-[![Integration Test](https://github.com/graycoreio/magento2-cors/actions/workflows/integration.yaml/badge.svg)](https://github.com/graycoreio/magento2-cors/actions/workflows/integration.yaml)
-[![Installation Test](https://github.com/graycoreio/magento2-cors/actions/workflows/install.yaml/badge.svg)](https://github.com/graycoreio/magento2-cors/actions/workflows/install.yaml)
+[![MageCheck Status](https://img.shields.io/github/actions/workflow/status/graycoreio/magento2-cors/check-extension.yaml?&label=MageCheck&labelColor=1a1a1a)](https://github.com/graycoreio/magento2-cors/actions/workflows/check-extension.yaml)
+![MageCheck Supported Version](https://img.shields.io/badge/currently_supported-any?label=MageCheck%20Supported&labelColor=1a1a1a&color=090c9b)
+
 
 </div>
 
