@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.2](https://github.com/graycoreio/magento2-cors/compare/v2.1.1...v2.1.2) (2026-02-27)
+
+
+### Miscellaneous Chores
+
+* remove extraneous nodejs deps ([0515bee](https://github.com/graycoreio/magento2-cors/commit/0515bee749818c13c3cce001448ddb0b443baf1a))
+
 ## [2.1.1](https://github.com/graycoreio/magento2-cors/compare/v2.1.0...v2.1.1) (2025-04-15)
 
 
