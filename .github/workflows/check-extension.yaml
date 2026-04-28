@@ -27,13 +27,13 @@ jobs:
       outputs:
         matrix: ${{ steps.supported-version.outputs.matrix }}
       steps:
-        - uses: graycoreio/github-actions-magento2/supported-version@main
+        - uses: graycoreio/github-actions-magento2/supported-version@v7.0.0-rc.0
           id: supported-version
           with:
               include_services: true
   check-extension:
     needs: compute_matrix
-    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@main
+    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@v7.0.0-rc.0
     with:
       matrix: ${{ needs.compute_matrix.outputs.matrix }}
       fail-fast: false
