@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.3](https://github.com/graycoreio/magento2-cors/compare/v2.1.2...v2.1.3) (2026-04-28)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump googleapis/release-please-action from 4 to 5 ([#96](https://github.com/graycoreio/magento2-cors/issues/96)) ([f402f78](https://github.com/graycoreio/magento2-cors/commit/f402f78c641e1f1cc97ed3e53da98986c8ddb5d2))
+
 ## [2.1.2](https://github.com/graycoreio/magento2-cors/compare/v2.1.1...v2.1.2) (2026-02-27)
 
 
