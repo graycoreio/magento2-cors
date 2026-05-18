@@ -9,6 +9,7 @@ use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Response\HeaderProvider\CorsMaxAgeHeaderProvider;
 use Graycore\Cors\Validator\CorsValidator;
 use Graycore\Cors\Validator\CorsValidatorInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Tests that the CORS MaxAge header
@@ -62,6 +63,7 @@ class CorsMaxAgeHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider canApplyDataProvider
      */
+    #[DataProvider('canApplyDataProvider')]
     public function testCanApply($maxAge, $originResult, $isPreflightRequest, $expected)
     {
         $this->corsConfigurationMock->method('getMaxAge')->willReturn($maxAge);
@@ -70,7 +72,7 @@ class CorsMaxAgeHeaderProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
     }
 
-    public function canApplyDataProvider()
+    public static function canApplyDataProvider()
     {
         return [
             'invalid origin, cors request' => [

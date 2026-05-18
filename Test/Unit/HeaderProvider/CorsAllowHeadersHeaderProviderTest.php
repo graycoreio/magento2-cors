@@ -8,6 +8,7 @@ namespace Graycore\Cors\Test\Unit\HeaderProvider;
 use Graycore\Cors\Response\HeaderProvider\CorsAllowHeadersHeaderProvider;
 use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Validator\CorsValidatorInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Tests that the CORS AllowHeader header
@@ -82,6 +83,7 @@ class CorsAllowHeadersHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider canApplyDataProvider
      */
+    #[DataProvider('canApplyDataProvider')]
     public function testCanApply($headers, $originResult, $isPreflight, $expected)
     {
         $this->corsConfigurationMock->method('getAllowedHeaders')->willReturn($headers);
@@ -90,7 +92,7 @@ class CorsAllowHeadersHeaderProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
     }
 
-    public function canApplyDataProvider()
+    public static function canApplyDataProvider()
     {
         return [
             'invalid origin, cors request' => [

@@ -11,6 +11,7 @@ use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Response\HeaderProvider\CorsAllowOriginHeaderProvider;
 use Magento\Framework\App\Request\Http;
 use Graycore\Cors\Validator\CorsValidatorInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Tests that the CORS AllowOrigin header is properly applied to a response
@@ -75,6 +76,7 @@ class CorsAllowOriginHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider getValueDataProvider
      */
+    #[DataProvider('getValueDataProvider')]
     public function testGetValue($allowedOrigins, $originHeader, $expected)
     {
         $this->corsConfigurationMock->method('getAllowedOrigins')->willReturn($allowedOrigins);
@@ -82,7 +84,7 @@ class CorsAllowOriginHeaderProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $this->provider->getValue());
     }
 
-    public function getValueDataProvider()
+    public static function getValueDataProvider()
     {
         return [
             'valid origin' => [
@@ -101,6 +103,7 @@ class CorsAllowOriginHeaderProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider canApplyDataProvider
      */
+    #[DataProvider('canApplyDataProvider')]
     public function testCanApply($originIsValid, $requestOrigin, $expected)
     {
         $this->requestMock->method('getHeader')->willReturn($requestOrigin);
@@ -109,7 +112,7 @@ class CorsAllowOriginHeaderProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $this->provider->canApply(), 'Incorrect canApply result');
     }
 
-    public function canApplyDataProvider()
+    public static function canApplyDataProvider()
     {
         return [
             'invalid origin' => [

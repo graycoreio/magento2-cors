@@ -11,6 +11,7 @@ use Graycore\Cors\Configuration\CorsConfigurationInterface;
 use Graycore\Cors\Validator\CorsValidator;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager as ObjectManagerHelper;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Tests the request validation that verifies
@@ -46,6 +47,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider originIsValidDataProvider
      */
+    #[DataProvider('originIsValidDataProvider')]
     public function testOriginIsValid($allowedOrigins, $requestOrigin, $expected)
     {
         $this->configurationMock->method('getAllowedOrigins')->willReturn($allowedOrigins);
@@ -62,7 +64,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
         return $this->assertEquals(false, $this->validator->originIsValid());
     }
 
-    public function originIsValidDataProvider()
+    public static function originIsValidDataProvider()
     {
         return [
             'valid origin' => [
@@ -106,6 +108,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider preflightTestDataProvider
      */
+    #[DataProvider('preflightTestDataProvider')]
     public function testIsPreflightRequest($allowedOrigins, $requestOrigin, $method, $result)
     {
         $this->configurationMock->method('getAllowedOrigins')->willReturn($allowedOrigins);
@@ -115,7 +118,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
         return $this->assertEquals($result, $this->validator->isPreflightRequest());
     }
 
-    public function preflightTestDataProvider()
+    public static function preflightTestDataProvider()
     {
         return [
             'valid origin as GET' => [
