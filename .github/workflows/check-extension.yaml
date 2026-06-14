@@ -27,7 +27,7 @@ jobs:
       outputs:
         matrix: ${{ steps.supported-version.outputs.matrix }}
       steps:
-        - uses: graycoreio/github-actions-magento2/supported-version@v8.5.0
+        - uses: graycoreio/github-actions-magento2/supported-version@v8.6.0
           id: supported-version
           with:
               include_services: true
