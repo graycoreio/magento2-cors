@@ -33,7 +33,7 @@ jobs:
               include_services: true
   check-extension:
     needs: compute_matrix
-    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@v8.5.0
+    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@v8.6.0
     with:
       matrix: ${{ needs.compute_matrix.outputs.matrix }}
       fail-fast: false
