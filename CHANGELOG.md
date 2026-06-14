@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.4](https://github.com/graycoreio/magento2-cors/compare/v2.1.3...v2.1.4) (2026-06-14)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump graycoreio/github-actions-magento2 from 8.2.0 to 8.5.0 ([#104](https://github.com/graycoreio/magento2-cors/issues/104)) ([5c03c0a](https://github.com/graycoreio/magento2-cors/commit/5c03c0a0c6c225a6f38c2d81ede644a856043e2c))
+* **deps:** bump graycoreio/github-actions-magento2 from 8.5.0 to 8.6.0 ([#107](https://github.com/graycoreio/magento2-cors/issues/107)) ([5878685](https://github.com/graycoreio/magento2-cors/commit/587868534cc04c20698da5499a0a74a13fdfe51c))
+* **deps:** bump graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml ([#103](https://github.com/graycoreio/magento2-cors/issues/103)) ([dc3fac6](https://github.com/graycoreio/magento2-cors/commit/dc3fac6e39468f7deb950aef70dbcb70cd739eec))
+* **deps:** bump graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml ([#106](https://github.com/graycoreio/magento2-cors/issues/106)) ([d846ba8](https://github.com/graycoreio/magento2-cors/commit/d846ba848eb9646c704ef27a69bf69783a89ef3d))
+
 ## [2.1.3](https://github.com/graycoreio/magento2-cors/compare/v2.1.2...v2.1.3) (2026-05-18)
 
 
