@@ -5,3 +5,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      semver-major-days: 7
+      semver-minor-days: 7
+      semver-patch-days: 3
+    groups:
+      graycore-actions:
+        patterns:
+          - "graycoreio/github-actions-magento2*"
