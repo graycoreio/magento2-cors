@@ -25,5 +25,3 @@ jobs:
     with:
       matrix: ${{ needs.compute_matrix.outputs.matrix }}
       fail-fast: false
-    secrets:
-      composer_auth: ${{ secrets.COMPOSER_AUTH }}
