@@ -17,11 +17,11 @@ jobs:
       outputs:
         matrix: ${{ steps.supported-version.outputs.matrix }}
       steps:
-        - uses: graycoreio/github-actions-magento2/supported-version@v8.8.0
+        - uses: graycoreio/github-actions-magento2/supported-version@v8.9.0
           id: supported-version
   check-extension:
     needs: compute_matrix
-    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@v8.8.0
+    uses: graycoreio/github-actions-magento2/.github/workflows/check-extension.yaml@v8.9.0
     with:
       matrix: ${{ needs.compute_matrix.outputs.matrix }}
       fail-fast: false
