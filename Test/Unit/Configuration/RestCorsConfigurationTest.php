@@ -30,7 +30,7 @@ class RestCorsConfigurationTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->scopeConfigMock = $this->createMock(ScopeConfigInterface::class);
+        $this->scopeConfigMock = $this->createStub(ScopeConfigInterface::class);
         $this->configuration = new CorsConfiguration($this->scopeConfigMock);
     }
 
