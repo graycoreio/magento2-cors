@@ -35,9 +35,9 @@ class CorsValidatorDiTest extends TestCase
      */
     public function testItDoesNotPresentAConcretionForTheCorsValidatorInterfaceInTheGlobalScope()
     {
-        $this->expectException(
-            \Error::class,
-            "Cannot instantiate interface Graycore\Cors\Validator\CorsValidatorInterface"
+        $this->expectException(\Error::class);
+        $this->expectExceptionMessage(
+            'Cannot instantiate interface Graycore\Cors\Validator\CorsValidatorInterface'
         );
         $this->objectManager->get(CorsValidatorInterface::class);
     }

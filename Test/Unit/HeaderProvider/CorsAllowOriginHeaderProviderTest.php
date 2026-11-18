@@ -52,9 +52,9 @@ class CorsAllowOriginHeaderProviderTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->corsValidatorMock = $this->createMock(CorsValidatorInterface::class);
-        $this->requestMock = $this->createMock(Http::class);
-        $this->corsConfigurationMock = $this->createMock(CorsConfigurationInterface::class);
+        $this->corsValidatorMock = $this->createStub(CorsValidatorInterface::class);
+        $this->requestMock = $this->createStub(Http::class);
+        $this->corsConfigurationMock = $this->createStub(CorsConfigurationInterface::class);
 
         $this->provider = new CorsAllowOriginHeaderProvider(
             $this->corsValidatorMock,

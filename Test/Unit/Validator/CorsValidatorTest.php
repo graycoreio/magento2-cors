@@ -39,8 +39,8 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->configurationMock = $this->createMock(CorsConfigurationInterface::class);
-        $this->requestMock = $this->createMock(Http::class);
+        $this->configurationMock = $this->createStub(CorsConfigurationInterface::class);
+        $this->requestMock = $this->createStub(Http::class);
         $this->validator = new CorsValidator($this->configurationMock, $this->requestMock);
     }
 
@@ -52,7 +52,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
     {
         $this->configurationMock->method('getAllowedOrigins')->willReturn($allowedOrigins);
         $this->requestMock->method('getHeader')->willReturn($requestOrigin);
-        return $this->assertEquals($expected, $this->validator->originIsValid());
+        $this->assertEquals($expected, $this->validator->originIsValid());
     }
 
     public function testInvalidOriginScheme()
@@ -61,7 +61,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
         $this->requestMock->method('getHeader')->willThrowException(
             new \InvalidArgumentException
         );
-        return $this->assertEquals(false, $this->validator->originIsValid());
+        $this->assertEquals(false, $this->validator->originIsValid());
     }
 
     public static function originIsValidDataProvider()
@@ -115,7 +115,7 @@ class CorsValidatorTest extends \PHPUnit\Framework\TestCase
         $this->requestMock->method('getHeader')->willReturn($requestOrigin);
         $this->requestMock->method('getMethod')->willReturn($method);
 
-        return $this->assertEquals($result, $this->validator->isPreflightRequest());
+        $this->assertEquals($result, $this->validator->isPreflightRequest());
     }
 
     public static function preflightTestDataProvider()
